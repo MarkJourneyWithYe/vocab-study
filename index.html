@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>시험별 필수 어휘·숙어 학습기</title>
+<title>시험별 필수 어휘 학습기</title>
+<meta name="description" content="수능·토익·공무원·내신 각 100단어 + 50숙어, 총 600개">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
@@ -21,17 +22,10 @@
   html, body { margin: 0; padding: 0; }
   body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    background: var(--bg); color: var(--ink); min-height: 100vh;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
-  .app {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 24px 20px 80px;
-  }
+  .app { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
   header.top {
     display: flex; align-items: center; justify-content: space-between;
     gap: 16px; margin-bottom: 18px;
@@ -46,25 +40,19 @@
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
     transition: background .25s, box-shadow .25s;
   }
-  .stats {
-    font-size: 13px; color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
+  .stats { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
   .stats b { color: var(--ink); font-weight: 700; }
 
   .tabs {
     display: flex; flex-wrap: wrap; gap: 8px;
     background: var(--card); padding: 8px;
-    border-radius: 12px; border: 1px solid var(--line);
-    margin-bottom: 14px;
+    border-radius: 12px; border: 1px solid var(--line); margin-bottom: 14px;
   }
   .tab {
-    flex: 1; min-width: 90px;
-    padding: 10px 14px;
+    flex: 1; min-width: 90px; padding: 10px 14px;
     border: none; border-radius: 8px; background: transparent;
     font-family: inherit; font-size: 14px; font-weight: 600;
-    color: var(--muted); cursor: pointer;
-    transition: all .15s ease;
+    color: var(--muted); cursor: pointer; transition: all .15s ease;
     display: flex; align-items: center; justify-content: center; gap: 6px;
   }
   .tab:hover { background: var(--bg); color: var(--ink); }
@@ -72,8 +60,7 @@
   .tab .count { font-size: 11px; opacity: .85; font-weight: 500; }
 
   .toolbar {
-    display: flex; gap: 10px; flex-wrap: wrap;
-    margin-bottom: 14px; align-items: center;
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; align-items: center;
   }
   .seg {
     display: inline-flex; background: var(--card);
@@ -82,13 +69,11 @@
   .seg button {
     border: none; background: transparent; padding: 7px 14px;
     font-family: inherit; font-size: 13px; font-weight: 600;
-    color: var(--muted); cursor: pointer; border-radius: 7px;
-    transition: all .15s;
+    color: var(--muted); cursor: pointer; border-radius: 7px; transition: all .15s;
   }
   .seg button.on { background: var(--ink); color: #fff; }
   .search {
-    flex: 1; min-width: 180px;
-    padding: 9px 14px;
+    flex: 1; min-width: 180px; padding: 9px 14px;
     border-radius: 10px; border: 1px solid var(--line);
     background: var(--card); font-family: inherit; font-size: 14px;
     color: var(--ink); outline: none;
@@ -122,8 +107,7 @@
 
   .panel {
     background: var(--card); border: 1px solid var(--line);
-    border-radius: var(--radius); box-shadow: var(--shadow);
-    overflow: hidden;
+    border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
   }
 
   /* LIST */
@@ -132,9 +116,7 @@
     display: grid;
     grid-template-columns: 44px 1.1fr 1fr 1.6fr 110px;
     gap: 14px; padding: 12px 16px;
-    align-items: center;
-    border-top: 1px solid var(--line);
-    transition: background .15s;
+    align-items: center; border-top: 1px solid var(--line); transition: background .15s;
   }
   .row:first-child { border-top: none; }
   .row:hover { background: #FCFBF8; }
@@ -143,10 +125,7 @@
     text-transform: uppercase; letter-spacing: 0.04em;
     background: #FAF8F3; padding: 10px 16px; border-top: none;
   }
-  .row .no {
-    font-variant-numeric: tabular-nums;
-    color: var(--muted); font-size: 13px; text-align: right;
-  }
+  .row .no { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; text-align: right; }
   .row .eng { font-weight: 700; font-size: 15px; }
   .row .kor { font-size: 14px; color: var(--ink); }
   .row .ex { font-size: 13px; color: #4B5563; font-style: italic; line-height: 1.5; }
@@ -156,8 +135,7 @@
     border: 1px solid var(--line); background: var(--card);
     border-radius: 8px; cursor: pointer;
     display: inline-flex; align-items: center; justify-content: center;
-    color: var(--muted); transition: all .15s;
-    padding: 0;
+    color: var(--muted); transition: all .15s; padding: 0;
   }
   .iconbtn:hover { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, white); }
   .iconbtn.known { background: #DCFCE7; border-color: #86EFAC; color: #166534; }
@@ -168,58 +146,29 @@
   .row.known:hover { background: #DCFCE7; }
 
   /* FLASHCARD */
-  .flash-wrap {
-    padding: 32px 24px 24px;
-    display: flex; flex-direction: column; align-items: center;
-    min-height: 480px;
-  }
-  .flash-counter {
-    font-size: 13px; color: var(--muted);
-    font-variant-numeric: tabular-nums;
-    margin-bottom: 18px;
-  }
-  .flashcard {
-    width: 100%; max-width: 560px;
-    aspect-ratio: 4 / 2.6;
-    perspective: 1200px; cursor: pointer;
-  }
-  .flash-inner {
-    position: relative; width: 100%; height: 100%;
-    transform-style: preserve-3d;
-    transition: transform .55s cubic-bezier(.4,0,.2,1);
-  }
+  .flash-wrap { padding: 32px 24px 24px; display: flex; flex-direction: column; align-items: center; min-height: 480px; }
+  .flash-counter { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; margin-bottom: 18px; }
+  .flashcard { width: 100%; max-width: 560px; aspect-ratio: 4 / 2.6; perspective: 1200px; cursor: pointer; }
+  .flash-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.4,0,.2,1); }
   .flash-inner.flipped { transform: rotateY(180deg); }
   .flash-face {
-    position: absolute; inset: 0;
-    backface-visibility: hidden;
-    border-radius: 18px;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    padding: 28px; text-align: center;
-    border: 2px solid var(--line);
-    background: #FFFFFF;
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border-radius: 18px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; padding: 28px; text-align: center;
+    border: 2px solid var(--line); background: #FFFFFF;
   }
   .flash-front { background: linear-gradient(160deg, #FFFFFF, #FAF8F3); }
   .flash-back  { transform: rotateY(180deg); background: linear-gradient(160deg, #FFFFFF, #F4F7FB); }
-  .flash-eng {
-    font-size: clamp(28px, 5vw, 44px);
-    font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px;
-  }
+  .flash-eng { font-size: clamp(28px, 5vw, 44px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
   .flash-hint { font-size: 12px; color: var(--muted); }
-  .flash-kor {
-    font-size: clamp(22px, 4vw, 32px);
-    font-weight: 700; margin-bottom: 16px;
-  }
+  .flash-kor { font-size: clamp(22px, 4vw, 32px); font-weight: 700; margin-bottom: 16px; }
   .flash-ex { font-size: 15px; color: #4B5563; font-style: italic; max-width: 480px; line-height: 1.55; }
-  .flash-nav {
-    display: flex; gap: 12px; margin-top: 22px; align-items: center;
-    flex-wrap: wrap; justify-content: center;
-  }
+  .flash-nav { display: flex; gap: 12px; margin-top: 22px; align-items: center; flex-wrap: wrap; justify-content: center; }
   .navbtn {
     padding: 10px 18px; border: 1px solid var(--line);
     background: var(--card); border-radius: 10px; font-family: inherit;
     font-size: 14px; font-weight: 600; color: var(--ink); cursor: pointer;
-    transition: all .15s;
-    display: inline-flex; align-items: center; gap: 6px;
+    transition: all .15s; display: inline-flex; align-items: center; gap: 6px;
   }
   .navbtn:hover { border-color: var(--accent); color: var(--accent); }
   .navbtn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -228,38 +177,13 @@
   .navbtn svg { width: 14px; height: 14px; }
 
   /* QUIZ */
-  .quiz-wrap {
-    padding: 28px 24px; display: flex; flex-direction: column;
-    align-items: center; min-height: 480px;
-  }
-  .quiz-bar {
-    width: 100%; max-width: 600px;
-    display: flex; justify-content: space-between; font-size: 13px;
-    color: var(--muted); margin-bottom: 12px; font-variant-numeric: tabular-nums;
-  }
-  .quiz-progress {
-    width: 100%; max-width: 600px; height: 6px;
-    background: var(--line); border-radius: 999px; overflow: hidden;
-    margin-bottom: 24px;
-  }
-  .quiz-progress > div {
-    height: 100%; background: var(--accent);
-    transition: width .35s ease, background .25s;
-  }
-  .quiz-question {
-    font-size: 12px; font-weight: 700; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;
-  }
-  .quiz-prompt {
-    font-size: clamp(26px, 4.5vw, 38px);
-    font-weight: 800; letter-spacing: -0.02em; margin-bottom: 26px;
-    display: flex; align-items: center; gap: 12px;
-    text-align: center; flex-wrap: wrap; justify-content: center;
-  }
-  .quiz-options {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-    width: 100%; max-width: 600px;
-  }
+  .quiz-wrap { padding: 28px 24px; display: flex; flex-direction: column; align-items: center; min-height: 480px; }
+  .quiz-bar { width: 100%; max-width: 600px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+  .quiz-progress { width: 100%; max-width: 600px; height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 24px; }
+  .quiz-progress > div { height: 100%; background: var(--accent); transition: width .35s ease, background .25s; }
+  .quiz-question { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .quiz-prompt { font-size: clamp(26px, 4.5vw, 38px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 26px; display: flex; align-items: center; gap: 12px; text-align: center; flex-wrap: wrap; justify-content: center; }
+  .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 600px; }
   .quiz-opt {
     padding: 14px 16px; background: var(--card);
     border: 1.5px solid var(--line); border-radius: 12px;
@@ -279,111 +203,126 @@
   .quiz-opt.wrong { background: #FEE2E2; border-color: #DC2626; color: #7F1D1D; }
   .quiz-opt.wrong .lbl { background: #DC2626; color: #fff; }
   .quiz-opt:disabled { cursor: default; }
-  .quiz-feedback {
-    margin-top: 20px; min-height: 24px;
-    font-size: 14px; color: var(--muted);
-    max-width: 600px; width: 100%; text-align: center;
-    font-style: italic;
-  }
+  .quiz-feedback { margin-top: 20px; min-height: 24px; font-size: 14px; color: var(--muted); max-width: 600px; width: 100%; text-align: center; font-style: italic; }
   .quiz-feedback b { font-style: normal; color: var(--ink); }
 
   /* TYPING */
-  .type-wrap {
-    padding: 32px 24px; display: flex; flex-direction: column;
-    align-items: center; min-height: 480px;
-  }
-  .type-card {
-    background: linear-gradient(160deg, #FFFFFF, #FAF8F3);
-    border: 2px solid var(--line); border-radius: 18px;
-    padding: 28px 24px; width: 100%; max-width: 560px;
-    text-align: center;
-  }
-  .type-prompt {
-    font-size: clamp(24px, 4.5vw, 36px);
-    font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px;
-    color: var(--ink);
-  }
-  .type-prompt.audio {
-    font-size: 16px; color: var(--muted); font-weight: 600;
-  }
-  .type-hint-ex { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 18px; }
+  .type-wrap { padding: 32px 24px; display: flex; flex-direction: column; align-items: center; min-height: 480px; }
+  .type-card { background: linear-gradient(160deg, #FFFFFF, #FAF8F3); border: 2px solid var(--line); border-radius: 18px; padding: 28px 24px; width: 100%; max-width: 560px; text-align: center; }
+  .type-prompt { font-size: clamp(24px, 4.5vw, 36px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--ink); }
+  .type-prompt.audio { font-size: 16px; color: var(--muted); font-weight: 600; }
   .type-input {
     width: 100%; max-width: 460px; margin: 16px auto 8px;
     padding: 14px 18px; font-family: 'JetBrains Mono', ui-monospace, monospace;
     font-size: 20px; text-align: center;
     border: 2px solid var(--line); border-radius: 12px;
-    background: #FFFFFF; outline: none;
-    color: var(--ink);
+    background: #FFFFFF; outline: none; color: var(--ink);
     transition: border-color .15s, box-shadow .15s;
   }
-  .type-input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent);
-  }
+  .type-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent); }
   .type-input.correct { border-color: #16A34A; background: #F0FDF4; }
   .type-input.wrong   { border-color: #DC2626; background: #FEF2F2; }
-  .type-feedback {
-    margin-top: 14px; min-height: 60px; font-size: 14px;
-    color: var(--muted); line-height: 1.55;
-  }
+  .type-feedback { margin-top: 14px; min-height: 60px; font-size: 14px; color: var(--muted); line-height: 1.55; }
   .type-feedback .ans { font-weight: 800; color: var(--ink); font-size: 18px; }
   .type-feedback .ex { font-style: italic; display: block; margin-top: 4px; color: #4B5563; }
-  .type-feedback.ok    { color: #166534; }
-  .type-feedback.bad   { color: #991B1B; }
+  .type-feedback.ok { color: #166534; }
+  .type-feedback.bad { color: #991B1B; }
 
   /* PRINT SHEET */
   .print-wrap { padding: 0; }
-  .print-controls {
-    padding: 18px 20px;
-    background: #FAF8F3; border-bottom: 1px solid var(--line);
-    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
-  }
   .print-preview {
     padding: 0; background: #EFEDE8;
-    max-height: 75vh; overflow-y: auto;
+    max-height: 78vh; overflow-y: auto;
   }
+
+  /* A4 sheet — print-perfect layout */
   .sheet {
-    background: #FFFFFF; margin: 18px auto; padding: 48px 44px;
-    width: 210mm; min-height: 297mm;
+    background: #FFFFFF;
+    margin: 18px auto;
+    padding: 22mm 18mm 18mm;
+    width: 210mm;
+    min-height: 297mm;
     box-shadow: 0 2px 8px rgba(0,0,0,.08);
-    color: #111; font-size: 12pt;
-  }
-  .sheet h1 {
-    margin: 0 0 6px; font-size: 18pt; letter-spacing: -0.02em;
-    border-bottom: 2px solid #111; padding-bottom: 10px;
-  }
-  .sheet .meta {
-    display: flex; justify-content: space-between; gap: 16px;
-    margin: 12px 0 22px; font-size: 11pt;
-  }
-  .sheet .meta span { display: inline-block; }
-  .sheet .meta b { display: inline-block; width: 60px; }
-  .sheet .meta u { display: inline-block; min-width: 120px; text-decoration: none; border-bottom: 1px solid #111; }
-  .sheet table {
-    width: 100%; border-collapse: collapse;
+    color: #111;
     font-size: 11pt;
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+    position: relative;
+    display: flex; flex-direction: column;
   }
-  .sheet td {
-    padding: 8px 6px; border-bottom: 1px dashed #999;
-    vertical-align: top;
+  .sheet-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    border-bottom: 2.5px solid #111; padding-bottom: 10px; margin-bottom: 14px;
   }
-  .sheet td.no { width: 28px; color: #666; text-align: right; padding-right: 10px; }
-  .sheet td.q { font-weight: 600; }
-  .sheet td.blank {
-    width: 40%; min-width: 120px;
+  .sheet-head .h-title {
+    font-size: 17pt; font-weight: 800; letter-spacing: -0.02em; margin: 0;
   }
-  .sheet td.blank .line {
+  .sheet-head .h-sub {
+    font-size: 9.5pt; color: #555; margin-top: 4px; font-weight: 500;
+  }
+  .sheet-head .h-brand {
+    font-size: 9pt; color: #666; text-align: right;
+  }
+  .meta-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 6px 14px; margin-bottom: 18px; font-size: 10pt;
+  }
+  .meta-cell { display: flex; align-items: baseline; gap: 6px; }
+  .meta-cell b { color: #333; font-weight: 700; white-space: nowrap; }
+  .meta-cell u {
+    flex: 1; min-width: 40px;
+    border-bottom: 1px solid #444; text-decoration: none; min-height: 14px;
+    display: inline-block;
+  }
+
+  .qtable { width: 100%; border-collapse: collapse; }
+  .qtable td {
+    padding: 9px 6px; border-bottom: 1px dashed #BBB; vertical-align: top;
+  }
+  .qtable td.no { width: 30px; color: #555; text-align: right; padding-right: 10px; font-weight: 600; }
+  .qtable td.q { font-weight: 600; }
+  .qtable td.q .ex-mini { font-size: 8.5pt; color: #777; font-style: italic; display: block; margin-top: 3px; font-weight: 400; }
+  .qtable td.blank { width: 38%; min-width: 110px; }
+  .qtable td.blank .line {
     display: inline-block; min-width: 100%; min-height: 18px;
     border-bottom: 1px solid #333;
   }
-  .sheet.answers h1 { color: #B91C1C; border-color: #B91C1C; }
-  .sheet.answers td.ans { color: #B91C1C; font-weight: 700; }
-  .sheet .ex-mini { font-size: 9pt; color: #666; font-style: italic; display: block; margin-top: 2px; }
-
-  .empty {
-    padding: 60px 20px; text-align: center; color: var(--muted);
-    font-size: 14px;
+  .qtable.two-col {
+    display: grid; grid-template-columns: 1fr 1fr; column-gap: 22px;
   }
+  .qtable.two-col tbody { display: contents; }
+  .qtable.two-col tr {
+    display: grid; grid-template-columns: 26px 1fr 38%;
+    border-bottom: 1px dashed #BBB; padding: 6px 0;
+  }
+  .qtable.two-col td { border-bottom: none; padding: 2px 4px; }
+
+  .choice-q {
+    margin-bottom: 14px; padding: 8px 0; border-bottom: 1px dotted #DDD;
+  }
+  .choice-q .head { font-weight: 700; margin-bottom: 6px; font-size: 11pt; }
+  .choice-q .head .num { color: #555; margin-right: 6px; }
+  .choice-q .opts {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px;
+    padding-left: 22px; font-size: 10.5pt;
+  }
+  .choice-q .opts span b { font-weight: 700; margin-right: 4px; color: #555; }
+
+  .sheet-foot {
+    margin-top: auto; padding-top: 12px; border-top: 1px solid #DDD;
+    display: flex; justify-content: space-between; font-size: 8.5pt; color: #888;
+  }
+  .sheet.answers .sheet-head { border-color: #B91C1C; }
+  .sheet.answers .h-title { color: #B91C1C; }
+  .ans-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 24px;
+  }
+  .ans-grid table { width: 100%; border-collapse: collapse; }
+  .ans-grid td { padding: 5px 6px; border-bottom: 1px dotted #DDD; font-size: 10pt; vertical-align: top; }
+  .ans-grid td.no { width: 28px; color: #888; text-align: right; padding-right: 8px; }
+  .ans-grid td.q { color: #333; }
+  .ans-grid td.a { color: #B91C1C; font-weight: 700; }
+
+  .empty { padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px; }
 
   @media (max-width: 720px) {
     .row { grid-template-columns: 32px 1fr 92px; }
@@ -393,16 +332,23 @@
     .row.head { grid-template-columns: 32px 1fr 92px; }
     .quiz-options { grid-template-columns: 1fr; }
     .voice { display: none; }
-    .sheet { width: 100%; padding: 24px 16px; }
+    .sheet { width: 100%; padding: 14mm 10mm; }
+    .meta-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media print {
+    @page { size: A4; margin: 12mm 12mm 14mm; }
     body { background: #fff; }
     .app > header, .tabs, .toolbar, .subbar, .print-controls { display: none !important; }
     .panel { border: none; box-shadow: none; }
     .print-preview { max-height: none; overflow: visible; padding: 0; background: #fff; }
-    .sheet { box-shadow: none; margin: 0; page-break-after: always; }
+    .sheet {
+      box-shadow: none; margin: 0; padding: 0;
+      width: 100%; min-height: auto;
+      page-break-after: always;
+    }
     .sheet:last-child { page-break-after: auto; }
+    .qtable td { padding: 7px 4px; }
   }
 </style>
 </head>
@@ -416,10 +362,7 @@
   <div class="tabs" id="examTabs"></div>
 
   <div class="toolbar">
-    <div class="seg" id="kindSeg">
-      <button data-kind="words" class="on">단어</button>
-      <button data-kind="idioms">숙어</button>
-    </div>
+    <div class="seg" id="kindSeg"></div>
     <div class="seg" id="modeSeg">
       <button data-mode="list" class="on">목록</button>
       <button data-mode="flash">플래시카드</button>
@@ -440,7 +383,7 @@
 </div>
 
 <script>
-const DATA = {"suneung": {"label": "수능", "color": "#1F6FEB", "words": [["abandon", "버리다, 포기하다", "He had to abandon his car in the snowstorm."], ["abstract", "추상적인", "Beauty is an abstract concept that varies by culture."], ["accumulate", "축적하다", "Dust tends to accumulate on bookshelves."], ["acknowledge", "인정하다", "She acknowledged her mistake and apologized."], ["adapt", "적응시키다", "Animals must adapt to their environment to survive."], ["adequate", "충분한, 적절한", "The room is adequate for ten people."], ["adopt", "채택하다, 입양하다", "The committee adopted a new policy."], ["advocate", "옹호하다", "She advocates for children's rights."], ["ambiguous", "모호한", "His answer was ambiguous and confusing."], ["analyze", "분석하다", "Scientists analyze data to draw conclusions."], ["anticipate", "예상하다", "We anticipate strong sales next quarter."], ["apparent", "분명한", "It was apparent that he was tired."], ["appropriate", "적절한", "Please wear appropriate clothing for the interview."], ["arbitrary", "임의적인", "The decision seemed arbitrary and unfair."], ["articulate", "명확히 표현하다", "She articulated her thoughts clearly."], ["assert", "주장하다", "He asserted that he was innocent."], ["assume", "가정하다", "Don't assume people know what you mean."], ["attain", "달성하다", "She attained her goal of becoming a doctor."], ["attribute", "~의 탓으로 돌리다", "He attributes his success to hard work."], ["authentic", "진짜의", "This is an authentic Italian recipe."], ["awareness", "인식", "Public awareness of climate change is growing."], ["behalf", "대신, 편", "I am speaking on behalf of my team."], ["beneficial", "유익한", "Exercise is beneficial to health."], ["bias", "편견", "The article showed a clear bias."], ["capacity", "능력, 수용력", "The stadium has a capacity of 50,000."], ["challenge", "도전하다", "She challenged him to a debate."], ["circumstance", "상황", "Under no circumstances should you open this door."], ["coherent", "일관성 있는", "Please write a coherent argument."], ["collaborate", "협력하다", "The two scientists collaborated on the project."], ["compel", "강요하다", "The evidence compelled him to confess."], ["complement", "보완하다", "The wine complements the meal nicely."], ["comprehensive", "포괄적인", "The report is comprehensive and detailed."], ["conceive", "생각해내다", "He conceived a brilliant plan."], ["conform", "따르다, 순응하다", "Students must conform to school rules."], ["consequence", "결과", "Every action has consequences."], ["constitute", "구성하다", "Women constitute 60% of the workforce."], ["contemplate", "숙고하다", "She contemplated her future career."], ["contradict", "모순되다", "His actions contradict his words."], ["contribute", "기여하다", "Many factors contribute to success."], ["controversy", "논란", "The decision caused great controversy."], ["convert", "전환하다", "We converted the garage into an office."], ["convey", "전달하다", "Words cannot convey my gratitude."], ["crucial", "결정적인", "Sleep is crucial for good health."], ["cultivate", "경작하다, 양성하다", "Farmers cultivate the land each spring."], ["deduce", "추론하다", "Sherlock deduced the truth from small clues."], ["dedicate", "헌신하다", "She dedicated her life to teaching."], ["deficient", "부족한", "His diet is deficient in vitamins."], ["demonstrate", "입증하다", "The experiment demonstrates the theory."], ["derive", "유래하다", "Many English words derive from Latin."], ["designate", "지정하다", "This area is designated for parking."], ["deteriorate", "악화되다", "His health began to deteriorate rapidly."], ["devote", "바치다", "He devotes his weekends to family."], ["diminish", "줄어들다", "The pain gradually diminished."], ["discern", "식별하다", "It's hard to discern the truth here."], ["disclose", "공개하다", "He refused to disclose his sources."], ["distinguish", "구별하다", "It's hard to distinguish the twins."], ["distort", "왜곡하다", "The media distorted the facts."], ["diverse", "다양한", "New York is a diverse city."], ["dominate", "지배하다", "The team dominated the match."], ["elaborate", "정교한; 자세히 설명하다", "Could you elaborate on that point?"], ["elicit", "이끌어내다", "The teacher tried to elicit answers from students."], ["eliminate", "제거하다", "We must eliminate waste from the process."], ["embrace", "받아들이다", "We should embrace new technology."], ["emphasize", "강조하다", "He emphasized the importance of honesty."], ["encounter", "마주치다", "I encountered an old friend at the store."], ["endorse", "지지하다", "The mayor endorsed the new policy."], ["enhance", "향상시키다", "Music can enhance your mood."], ["enroll", "등록하다", "She enrolled in a Spanish course."], ["equivalent", "동등한", "One dollar is equivalent to about 1,300 won."], ["essential", "필수적인", "Water is essential for life."], ["evaluate", "평가하다", "Teachers evaluate students' performance."], ["evident", "명백한", "It was evident he was lying."], ["evoke", "불러일으키다", "The song evokes childhood memories."], ["exaggerate", "과장하다", "Don't exaggerate the problem."], ["exceed", "초과하다", "Sales exceeded our expectations."], ["exclude", "제외하다", "The price excludes tax."], ["exhibit", "전시하다", "The museum exhibits ancient art."], ["exploit", "착취하다, 이용하다", "Companies should not exploit workers."], ["external", "외부의", "External factors affect our business."], ["fascinate", "매혹하다", "Space fascinates many children."], ["feasible", "실현 가능한", "The plan is feasible with more funding."], ["flourish", "번창하다", "The business flourished last year."], ["fluctuate", "변동하다", "Prices fluctuate daily."], ["foster", "육성하다", "We must foster creativity in schools."], ["fundamental", "근본적인", "Honesty is a fundamental value."], ["genuine", "진실한", "Her smile was genuine."], ["grasp", "이해하다", "It's hard to grasp this concept."], ["hierarchy", "위계", "There is a strict hierarchy in the company."], ["hinder", "방해하다", "Bad weather hindered our progress."], ["hypothesis", "가설", "Scientists test their hypothesis with experiments."], ["illuminate", "밝히다", "The data illuminates the trend."], ["imply", "암시하다", "Silence does not imply consent."], ["inevitable", "피할 수 없는", "Change is inevitable in life."], ["infer", "추론하다", "We can infer the meaning from context."], ["inherent", "내재된", "Risk is inherent in any investment."], ["innovate", "혁신하다", "Companies must innovate to survive."], ["integrate", "통합하다", "We integrate technology into classrooms."], ["interpret", "해석하다", "How do you interpret this poem?"], ["intuition", "직감", "Trust your intuition sometimes."], ["justify", "정당화하다", "The end does not justify the means."]], "idioms": [["account for", "설명하다, 차지하다", "How do you account for the missing money?"], ["break down", "고장 나다, 분해되다", "The car broke down on the highway."], ["bring about", "야기하다", "Technology brought about huge changes."], ["carry out", "수행하다", "Scientists carried out the experiment."], ["come across", "우연히 만나다", "I came across an old letter."], ["come up with", "떠올리다", "She came up with a brilliant idea."], ["cope with", "대처하다", "It's hard to cope with stress."], ["count on", "의지하다", "You can count on me anytime."], ["deal with", "다루다", "Managers deal with conflicts daily."], ["depend on", "의존하다", "Children depend on their parents."], ["derive from", "~에서 유래하다", "Many words derive from Greek."], ["die out", "멸종하다", "Many species are dying out."], ["dispose of", "처분하다", "Please dispose of trash properly."], ["draw on", "이용하다", "Writers draw on personal experience."], ["engage in", "참여하다", "Students engage in various activities."], ["fall behind", "뒤처지다", "Don't fall behind in your studies."], ["figure out", "알아내다", "I can't figure out the answer."], ["focus on", "집중하다", "Let's focus on the main topic."], ["for the sake of", "~을 위해", "We work for the sake of our families."], ["get rid of", "없애다", "We need to get rid of clutter."], ["give in", "굴복하다", "Don't give in to peer pressure."], ["give rise to", "야기하다", "Poverty gives rise to crime."], ["hand in", "제출하다", "Please hand in your homework."], ["in addition to", "~외에도", "In addition to English, she speaks French."], ["in spite of", "~에도 불구하고", "In spite of the rain, we went out."], ["in terms of", "~의 관점에서", "Think in terms of long-term benefits."], ["keep up with", "따라가다", "It's hard to keep up with technology."], ["lead to", "초래하다", "Hard work leads to success."], ["let down", "실망시키다", "I won't let you down."], ["live up to", "부응하다", "He lives up to expectations."], ["look into", "조사하다", "Police will look into the matter."], ["look up to", "존경하다", "I look up to my grandfather."], ["make sense", "말이 되다", "Your explanation makes sense."], ["make up for", "보상하다", "I'll make up for my mistake."], ["on behalf of", "~을 대신하여", "I speak on behalf of the team."], ["owing to", "~때문에", "The game was canceled owing to rain."], ["pass away", "돌아가시다", "His grandfather passed away last year."], ["pay attention to", "주의를 기울이다", "Pay attention to details."], ["put off", "미루다", "Don't put off important tasks."], ["put up with", "참다", "I can't put up with this noise."], ["refer to", "언급하다", "Please refer to chapter 3."], ["result in", "결과를 낳다", "Smoking results in poor health."], ["rule out", "배제하다", "We can't rule out that possibility."], ["set aside", "한쪽에 두다", "Set aside time for reading."], ["show up", "나타나다", "He didn't show up to the meeting."], ["stand for", "상징하다", "What does this symbol stand for?"], ["take advantage of", "이용하다", "Take advantage of the sale."], ["take into account", "고려하다", "Take all factors into account."], ["turn out", "판명되다", "It turned out to be a great day."], ["up to date", "최신의", "Keep your software up to date."]]}, "toeic": {"label": "토익", "color": "#2DA44E", "words": [["accommodate", "수용하다", "The hotel can accommodate 200 guests."], ["acquire", "인수하다, 획득하다", "The company acquired a smaller competitor."], ["agenda", "의제", "The meeting agenda was distributed yesterday."], ["allocate", "할당하다", "We allocated $5,000 to marketing."], ["amend", "수정하다", "The contract was amended last week."], ["appliance", "가전제품", "Kitchen appliances are on sale."], ["applicant", "지원자", "We received 50 applicants for the position."], ["appraise", "평가하다", "Managers appraise employees annually."], ["assemble", "조립하다, 모이다", "Workers assemble cars on the line."], ["assignment", "업무, 과제", "I have a new assignment this week."], ["attendance", "출석, 참석", "Attendance at the seminar was strong."], ["authorize", "권한을 부여하다", "Only managers can authorize refunds."], ["beverage", "음료", "Beverages are available at the back."], ["boost", "신장시키다", "The ad campaign boosted sales."], ["brochure", "안내 책자", "Take a brochure for more information."], ["budget", "예산", "We need to stay within budget."], ["campaign", "캠페인", "The marketing campaign was successful."], ["candidate", "후보자", "Three candidates applied for the position."], ["certify", "인증하다", "Our products are certified organic."], ["client", "고객", "The client requested a meeting."], ["commute", "통근하다", "I commute by subway every day."], ["compensate", "보상하다", "We will compensate you for the inconvenience."], ["compile", "편집하다, 모으다", "Please compile the data into a report."], ["complimentary", "무료의", "Breakfast is complimentary for guests."], ["confidential", "기밀의", "This document is confidential."], ["confirm", "확인하다", "Please confirm your reservation."], ["consultant", "컨설턴트", "We hired a consultant for advice."], ["contract", "계약", "We signed a two-year contract."], ["corporate", "기업의", "Corporate policy prohibits this."], ["coverage", "보장, 보도", "The insurance has full coverage."], ["credentials", "자격", "She has impressive credentials."], ["decline", "거절하다, 감소하다", "Sales declined last quarter."], ["deduct", "공제하다", "Taxes are deducted from your paycheck."], ["deliver", "배송하다", "We deliver within 24 hours."], ["department", "부서", "Which department do you work in?"], ["deposit", "보증금, 예치하다", "A deposit is required."], ["distribute", "배포하다", "Please distribute the handouts."], ["document", "문서", "Please sign the document."], ["draft", "초안", "Please review the draft proposal."], ["efficient", "효율적인", "This is a more efficient method."], ["eligible", "자격이 있는", "Are you eligible for the discount?"], ["employee", "직원", "All employees must wear badges."], ["enclose", "동봉하다", "I enclose my resume."], ["ensure", "보장하다", "Please ensure all forms are signed."], ["envelope", "봉투", "Place the letter in the envelope."], ["estimate", "견적", "Please provide a cost estimate."], ["exchange", "교환하다", "You can exchange the item within 30 days."], ["executive", "임원", "The executive will arrive shortly."], ["expand", "확장하다", "The company plans to expand overseas."], ["expense", "비용", "Travel expenses will be reimbursed."], ["expire", "만료되다", "My passport expires next month."], ["facility", "시설", "The facility is open 24 hours."], ["feedback", "피드백", "We welcome your feedback."], ["finance", "재무", "She works in finance."], ["forecast", "예측", "The weather forecast looks good."], ["headquarters", "본사", "Our headquarters is in Seoul."], ["implement", "실행하다", "We will implement the changes next month."], ["inquiry", "문의", "We received an inquiry about the product."], ["install", "설치하다", "Technicians will install the system."], ["inventory", "재고", "Our inventory is running low."], ["invoice", "송장", "Please pay the invoice by Friday."], ["itinerary", "여행 일정", "I'll email you the itinerary."], ["launch", "출시하다", "We will launch the product in June."], ["liability", "책임", "The company has limited liability."], ["maintenance", "유지보수", "Equipment requires regular maintenance."], ["manufacture", "제조하다", "We manufacture electronics."], ["merchandise", "상품", "All merchandise must be returned."], ["merger", "합병", "The merger was announced today."], ["negotiate", "협상하다", "We need to negotiate the terms."], ["notify", "통지하다", "Please notify us of any changes."], ["occupy", "차지하다", "We occupy the 5th floor."], ["operate", "운영하다", "We operate in 20 countries."], ["opportunity", "기회", "This is a great opportunity."], ["outstanding", "미지급의, 뛰어난", "The outstanding balance is $500."], ["overseas", "해외의", "We have overseas offices."], ["patron", "단골 고객", "Loyal patrons receive discounts."], ["policy", "정책", "This is our refund policy."], ["postpone", "연기하다", "The meeting was postponed."], ["premises", "부지, 건물", "Smoking is prohibited on the premises."], ["procedure", "절차", "Follow the standard procedure."], ["proceed", "진행하다", "Please proceed to gate 5."], ["promote", "승진시키다", "She was promoted to manager."], ["purchase", "구매", "Thank you for your purchase."], ["recruit", "모집하다", "We are recruiting new staff."], ["refund", "환불", "We offer a full refund."], ["reimburse", "환급하다", "We will reimburse your expenses."], ["renovate", "개조하다", "The hotel is being renovated."], ["retail", "소매", "She works in retail."], ["revenue", "수익", "Annual revenue increased 10%."], ["schedule", "일정", "Check the schedule for changes."], ["shipment", "발송, 화물", "Your shipment will arrive Tuesday."], ["spreadsheet", "스프레드시트", "Update the spreadsheet weekly."], ["subscription", "구독", "Cancel your subscription anytime."], ["supplier", "공급업체", "We changed suppliers last year."], ["survey", "설문조사", "Please complete this survey."], ["terminate", "종료하다", "Your contract will terminate next month."], ["transaction", "거래", "The transaction was approved."], ["vacancy", "공석", "We have a vacancy in HR."], ["vendor", "판매업체", "The vendor will deliver tomorrow."], ["warehouse", "창고", "Goods are stored in the warehouse."]], "idioms": [["account for", "설명하다", "Please account for the missing inventory."], ["apply for", "지원하다", "I want to apply for the position."], ["as soon as possible", "가능한 빨리", "Please reply as soon as possible."], ["ask for", "요청하다", "The customer asked for a refund."], ["attend to", "처리하다", "I'll attend to the matter immediately."], ["be in charge of", "~을 담당하다", "She is in charge of marketing."], ["be subject to", "~의 대상이다", "Prices are subject to change."], ["break down", "고장 나다", "The copier broke down again."], ["bring up", "언급하다", "Don't bring up that topic."], ["call back", "다시 전화하다", "I'll call you back later."], ["call off", "취소하다", "The meeting was called off."], ["carry out", "실행하다", "We will carry out the plan."], ["catch up on", "밀린 일을 처리하다", "I need to catch up on emails."], ["check in", "체크인하다", "Please check in at the desk."], ["check out", "체크아웃하다", "Check out is at 11 AM."], ["come up with", "떠올리다", "We need to come up with a solution."], ["cut down on", "줄이다", "We must cut down on costs."], ["drop off", "내려주다", "I'll drop off the package."], ["fill in for", "대신하다", "Can you fill in for me?"], ["fill out", "작성하다", "Please fill out this form."], ["follow up", "후속 조치하다", "I will follow up next week."], ["get back to", "다시 연락하다", "I'll get back to you soon."], ["give a hand", "도와주다", "Could you give me a hand?"], ["go over", "검토하다", "Let's go over the report."], ["hand in", "제출하다", "Hand in your timesheet by Friday."], ["hand out", "나눠주다", "Please hand out these flyers."], ["hold on", "잠깐 기다리다", "Hold on, I'll transfer you."], ["in advance", "미리", "Pay in advance for a discount."], ["in charge of", "담당하는", "Who is in charge of this project?"], ["keep track of", "기록을 추적하다", "Keep track of your expenses."], ["look forward to", "기대하다", "I look forward to meeting you."], ["look into", "조사하다", "We will look into the issue."], ["on behalf of", "~을 대신하여", "I write on behalf of my client."], ["on schedule", "예정대로", "The flight is on schedule."], ["out of stock", "재고가 없는", "That item is out of stock."], ["pick up", "픽업하다", "I'll pick you up at 3."], ["point out", "지적하다", "Let me point out an error."], ["put off", "미루다", "The launch was put off."], ["run out of", "다 떨어지다", "We ran out of paper."], ["set up", "설치하다, 마련하다", "Set up a meeting tomorrow."], ["sign up for", "가입하다", "Sign up for our newsletter."], ["stand by", "대기하다", "Please stand by for instructions."], ["stock up", "비축하다", "Stock up on office supplies."], ["take care of", "처리하다", "I'll take care of the report."], ["take over", "인수하다", "She will take over the project."], ["take place", "일어나다", "The event takes place Friday."], ["turn down", "거절하다", "They turned down our offer."], ["turn in", "제출하다", "Turn in the form by 5 PM."], ["work out", "운동하다, 해결되다", "Things will work out."], ["wrap up", "마무리하다", "Let's wrap up the meeting."]]}, "gongmuwon": {"label": "공무원", "color": "#BF8700", "words": [["abate", "줄이다, 약화시키다", "The storm finally abated."], ["abdicate", "퇴위하다", "The king abdicated the throne."], ["aberration", "일탈, 이상", "This behavior is an aberration."], ["abhor", "혐오하다", "I abhor any form of violence."], ["abrogate", "폐지하다", "The treaty was abrogated last year."], ["abstain", "삼가다", "She abstains from alcohol."], ["acquiesce", "묵인하다", "He acquiesced to their demands."], ["acrimonious", "신랄한", "The divorce was acrimonious."], ["adamant", "완강한", "She was adamant about going."], ["admonish", "훈계하다", "The judge admonished the defendant."], ["adversary", "적", "He defeated his adversary in court."], ["alleviate", "완화하다", "This medicine alleviates pain."], ["amalgamate", "합병하다", "The two firms amalgamated."], ["ameliorate", "개선하다", "Reforms aim to ameliorate conditions."], ["anomaly", "변칙", "The data shows an anomaly."], ["antipathy", "반감", "He has an antipathy toward bureaucracy."], ["apathy", "무관심", "Voter apathy is a serious issue."], ["arduous", "힘든", "The journey was arduous."], ["articulate", "분명히 말하다", "She articulates her views well."], ["ascertain", "확인하다", "We must ascertain the facts first."], ["assiduous", "근면한", "He is an assiduous student."], ["astute", "영민한", "She is an astute investor."], ["augment", "늘리다", "We will augment the budget."], ["austere", "엄격한, 검소한", "He lived an austere life."], ["autonomous", "자치의", "The region is autonomous."], ["belligerent", "적대적인", "His tone was belligerent."], ["benevolent", "자비로운", "A benevolent donor funded the school."], ["brevity", "간결함", "I appreciate your brevity."], ["cajole", "회유하다", "She cajoled him into helping."], ["candor", "솔직함", "I admire her candor."], ["capricious", "변덕스러운", "The weather is capricious here."], ["censure", "비난하다", "Officials censured the policy."], ["circumvent", "우회하다", "He tried to circumvent the rules."], ["clandestine", "비밀의", "They held clandestine meetings."], ["coerce", "강요하다", "No one can coerce me into lying."], ["cogent", "설득력 있는", "She made a cogent argument."], ["complacent", "자만하는", "Don't become complacent after success."], ["concede", "인정하다", "He conceded defeat."], ["conciliatory", "화해적인", "He took a conciliatory tone."], ["condone", "묵인하다", "We cannot condone such behavior."], ["confound", "당황시키다", "The results confounded scientists."], ["consummate", "완벽한", "She is a consummate professional."], ["contentious", "논쟁적인", "That is a contentious issue."], ["corroborate", "입증하다", "Witnesses corroborated his story."], ["credulous", "잘 믿는", "He is too credulous of strangers."], ["culpable", "유죄의", "The company was culpable for the spill."], ["cursory", "피상적인", "A cursory glance is not enough."], ["dearth", "부족", "There is a dearth of qualified workers."], ["debunk", "폭로하다", "The study debunks common myths."], ["delineate", "윤곽을 그리다", "The contract delineates duties."], ["deride", "조롱하다", "Critics derided his work."], ["desultory", "산만한", "He made desultory remarks."], ["dichotomy", "이분법", "The dichotomy is false."], ["disparate", "이질적인", "The data is from disparate sources."], ["disseminate", "퍼뜨리다", "We disseminate information widely."], ["divulge", "누설하다", "He refused to divulge details."], ["dogmatic", "독단적인", "His dogmatic views are unwelcome."], ["ebullient", "활기찬", "She has an ebullient personality."], ["egregious", "엄청난", "That was an egregious mistake."], ["elicit", "끌어내다", "The question elicited a strong response."], ["eloquent", "웅변의", "He gave an eloquent speech."], ["emulate", "본받다", "Students should emulate good leaders."], ["enervate", "기력을 빼앗다", "The heat enervated us."], ["ephemeral", "일시적인", "Fame is often ephemeral."], ["equivocal", "모호한", "His answer was equivocal."], ["eradicate", "근절하다", "We aim to eradicate poverty."], ["erudite", "박학한", "He is an erudite scholar."], ["esoteric", "난해한", "The lecture was too esoteric."], ["exacerbate", "악화시키다", "Stress can exacerbate illness."], ["exonerate", "무죄임을 입증하다", "New evidence exonerated him."], ["expedient", "편의적인", "It was the most expedient solution."], ["extol", "격찬하다", "Critics extolled the novel."], ["fastidious", "까다로운", "He is fastidious about details."], ["fortuitous", "우연한", "It was a fortuitous meeting."], ["garrulous", "수다스러운", "The garrulous host wouldn't stop talking."], ["gregarious", "사교적인", "She is a gregarious woman."], ["hackneyed", "진부한", "That phrase is hackneyed."], ["impervious", "영향받지 않는", "He is impervious to criticism."], ["impetuous", "충동적인", "Don't make impetuous decisions."], ["inadvertent", "부주의한", "It was an inadvertent error."], ["incessant", "끊임없는", "The incessant noise was annoying."], ["inculcate", "주입시키다", "We inculcate good values in children."], ["indolent", "게으른", "He has become indolent."], ["ineffable", "형언할 수 없는", "The view was ineffable."], ["inveterate", "상습적인", "He is an inveterate gambler."], ["juxtapose", "병치하다", "The artist juxtaposes light and shadow."], ["laconic", "말수가 적은", "His laconic reply surprised me."], ["lassitude", "무기력", "A feeling of lassitude swept over her."], ["magnanimous", "관대한", "The winner was magnanimous in victory."], ["malign", "비방하다", "He maligned his rivals openly."], ["mitigate", "완화하다", "Steps were taken to mitigate damage."], ["obfuscate", "모호하게 하다", "He tried to obfuscate the truth."], ["obstinate", "완고한", "She is obstinate in her opinions."], ["ostentatious", "과시적인", "His lifestyle is ostentatious."], ["perfunctory", "형식적인", "He gave a perfunctory nod."], ["propitious", "좋은 조건의", "This is a propitious time to invest."], ["recalcitrant", "반항적인", "The recalcitrant student was suspended."], ["tacit", "암묵적인", "We had a tacit agreement."], ["ubiquitous", "어디에나 있는", "Smartphones are ubiquitous now."], ["vindicate", "정당함을 입증하다", "Time will vindicate his decision."]], "idioms": [["abide by", "준수하다", "We must abide by the law."], ["account for", "설명하다", "The minister must account for the policy."], ["adhere to", "고수하다", "Adhere to the regulations strictly."], ["amount to", "~에 달하다", "Damages amount to millions."], ["at the expense of", "~을 희생하여", "Growth at the expense of environment is unwise."], ["at the mercy of", "~의 처분에 맡겨진", "Citizens are at the mercy of policy changes."], ["be averse to", "싫어하다", "He is averse to taking risks."], ["be conducive to", "~에 도움이 되다", "This climate is conducive to learning."], ["be obliged to", "~할 의무가 있다", "Officials are obliged to disclose assets."], ["be subject to", "~의 영향을 받다", "All laws are subject to revision."], ["bear in mind", "명심하다", "Bear in mind the consequences."], ["by virtue of", "~덕분에", "By virtue of his office, he chairs the meeting."], ["come to terms with", "받아들이다", "She came to terms with the loss."], ["comply with", "준수하다", "All firms must comply with the law."], ["dispense with", "없이 지내다", "We can dispense with formalities."], ["dwell on", "~에 대해 곱씹다", "Don't dwell on the past."], ["embark on", "착수하다", "He embarked on a new career."], ["fall short of", "미치지 못하다", "Results fell short of expectations."], ["for the sake of", "~을 위해", "For the sake of justice, we proceed."], ["give credence to", "신뢰하다", "I give credence to her testimony."], ["give rise to", "야기하다", "This policy will give rise to debate."], ["have a bearing on", "관련 있다", "This evidence has a bearing on the case."], ["in accordance with", "~에 따라", "In accordance with the rules."], ["in conjunction with", "~와 함께", "In conjunction with other agencies."], ["in lieu of", "~대신에", "Cash in lieu of vacation days."], ["in the wake of", "~의 여파로", "In the wake of the scandal."], ["lend itself to", "~에 적합하다", "The space lends itself to events."], ["live up to", "부응하다", "He failed to live up to his promise."], ["make allowance for", "감안하다", "Make allowance for delays."], ["make headway", "진척시키다", "We made headway on the bill."], ["on the verge of", "~의 직전에", "The country is on the verge of reform."], ["pave the way for", "길을 열다", "This paves the way for change."], ["pay heed to", "주의를 기울이다", "Pay heed to expert warnings."], ["play a role in", "역할을 하다", "Citizens play a role in democracy."], ["prevail over", "우세하다", "Justice will prevail over corruption."], ["put forward", "제시하다", "The minister put forward a proposal."], ["rest on", "~에 달려 있다", "Success rests on cooperation."], ["shed light on", "밝히다", "The report shed light on the issue."], ["stem from", "~에서 비롯되다", "Conflict stems from inequality."], ["subject to", "~을 조건으로", "Subject to approval by the board."], ["take exception to", "이의를 제기하다", "I take exception to that claim."], ["take into account", "고려하다", "Take into account public opinion."], ["take issue with", "이의를 제기하다", "I take issue with that point."], ["take precedence over", "우선하다", "Safety takes precedence over speed."], ["to the detriment of", "~에 손해를 끼치며", "Profits at the detriment of welfare."], ["tantamount to", "~에 해당하는", "This is tantamount to fraud."], ["with regard to", "~에 관하여", "With regard to your request."], ["with the exception of", "~을 제외하고", "With the exception of holidays."], ["without prejudice", "권리 침해 없이", "Settled without prejudice."], ["yield to", "굴복하다", "The government yielded to pressure."]]}, "naesin": {"label": "내신", "color": "#8250DF", "words": [["ability", "능력", "She has the ability to learn quickly."], ["accept", "받아들이다", "I accept your apology."], ["achieve", "성취하다", "You can achieve your dreams."], ["activity", "활동", "Sports is my favorite activity."], ["add", "더하다", "Add some sugar to the tea."], ["afraid", "두려워하는", "Don't be afraid of the dark."], ["agree", "동의하다", "I agree with you."], ["allow", "허락하다", "My parents allow me to stay out."], ["answer", "답하다", "Please answer the question."], ["appear", "나타나다", "A rainbow appeared after the rain."], ["believe", "믿다", "I believe in you."], ["borrow", "빌리다", "Can I borrow your pen?"], ["break", "부수다", "Don't break the window."], ["bring", "가져오다", "Please bring your textbook."], ["busy", "바쁜", "I am busy this weekend."], ["careful", "조심하는", "Be careful crossing the street."], ["catch", "잡다", "Catch the ball!"], ["cause", "원인", "What is the cause of the problem?"], ["change", "바꾸다", "I want to change my clothes."], ["choose", "선택하다", "Choose your favorite color."], ["clean", "깨끗한", "Keep your room clean."], ["clear", "명확한", "The instructions are clear."], ["close", "가까운", "The store is close to my house."], ["collect", "모으다", "I collect stamps."], ["compare", "비교하다", "Don't compare yourself to others."], ["complete", "완료하다", "Complete the assignment by Friday."], ["continue", "계속하다", "Please continue your story."], ["cool", "시원한", "The water is cool."], ["create", "만들다", "Artists create beautiful works."], ["cross", "건너다", "Cross the street carefully."], ["dangerous", "위험한", "Smoking is dangerous."], ["decide", "결정하다", "I can't decide what to wear."], ["delicious", "맛있는", "This pizza is delicious."], ["describe", "묘사하다", "Describe your hometown."], ["develop", "발전시키다", "Read books to develop your mind."], ["difficult", "어려운", "This question is difficult."], ["discover", "발견하다", "Scientists discover new things daily."], ["drop", "떨어뜨리다", "Don't drop the glass."], ["enjoy", "즐기다", "I enjoy reading books."], ["enough", "충분한", "We have enough food."], ["especially", "특히", "I love fruit, especially apples."], ["excited", "신난", "I am excited for the trip."], ["exercise", "운동", "Daily exercise is good for you."], ["experience", "경험", "I have no experience in cooking."], ["explain", "설명하다", "Can you explain this to me?"], ["famous", "유명한", "He is a famous singer."], ["feel", "느끼다", "I feel happy today."], ["finally", "마침내", "We finally arrived home."], ["follow", "따르다", "Follow the rules."], ["forget", "잊다", "Don't forget your umbrella."], ["friendly", "친절한", "She is very friendly."], ["future", "미래", "What do you want to do in the future?"], ["happen", "일어나다", "What happened yesterday?"], ["heavy", "무거운", "This box is too heavy."], ["helpful", "도움이 되는", "Your advice is helpful."], ["holiday", "휴일", "Tomorrow is a holiday."], ["hope", "희망하다", "I hope you feel better."], ["however", "그러나", "It rained; however, we went out."], ["important", "중요한", "Health is important."], ["interesting", "흥미로운", "This book is interesting."], ["introduce", "소개하다", "Let me introduce my friend."], ["invite", "초대하다", "I will invite you to my party."], ["join", "가입하다", "I joined the soccer club."], ["journey", "여행", "The journey was long."], ["judge", "판단하다", "Don't judge a book by its cover."], ["kind", "친절한", "She is a kind person."], ["learn", "배우다", "I learn English every day."], ["leave", "떠나다", "I leave for school at 8."], ["lend", "빌려주다", "Can you lend me a book?"], ["lonely", "외로운", "He felt lonely without friends."], ["lose", "잃다", "Don't lose your keys."], ["lucky", "운이 좋은", "You are lucky to have such friends."], ["memory", "기억", "I have a good memory."], ["mistake", "실수", "Everyone makes mistakes."], ["nervous", "긴장한", "I'm nervous about the test."], ["notice", "알아차리다", "I didn't notice the sign."], ["offer", "제안하다", "He offered me a job."], ["often", "자주", "I often go to the library."], ["opinion", "의견", "What's your opinion?"], ["peace", "평화", "We all want peace."], ["perhaps", "아마도", "Perhaps it will rain later."], ["plan", "계획", "What are your plans for tomorrow?"], ["popular", "인기 있는", "K-pop is popular worldwide."], ["practice", "연습하다", "Practice makes perfect."], ["prepare", "준비하다", "Prepare for the exam carefully."], ["present", "선물", "I got a present for my birthday."], ["probably", "아마도", "It will probably rain."], ["promise", "약속하다", "I promise to help you."], ["protect", "보호하다", "Parents protect their children."], ["proud", "자랑스러운", "I am proud of you."], ["receive", "받다", "I received a letter today."], ["remember", "기억하다", "Remember to lock the door."], ["respect", "존경하다", "I respect my teachers."], ["return", "돌아오다", "When will you return?"], ["several", "몇몇의", "I have several friends here."], ["share", "공유하다", "Share your toys with others."], ["solve", "해결하다", "Let's solve this problem together."], ["special", "특별한", "Today is a special day."], ["suggest", "제안하다", "I suggest we leave now."], ["wonderful", "멋진", "We had a wonderful time."]], "idioms": [["a lot of", "많은", "I have a lot of homework."], ["ask for", "요청하다", "Ask for help when needed."], ["at first", "처음에는", "At first, I was nervous."], ["at last", "마침내", "At last, the bus arrived."], ["at least", "적어도", "Sleep at least 8 hours."], ["at the same time", "동시에", "We arrived at the same time."], ["be able to", "~할 수 있다", "I am able to swim."], ["be afraid of", "~을 두려워하다", "I am afraid of spiders."], ["be busy with", "~로 바쁘다", "She is busy with homework."], ["be famous for", "~로 유명하다", "Korea is famous for kimchi."], ["be filled with", "~로 가득 차다", "The box is filled with books."], ["be full of", "~로 가득하다", "The room is full of people."], ["be good at", "~을 잘하다", "He is good at math."], ["be interested in", "~에 흥미가 있다", "I am interested in music."], ["be late for", "~에 늦다", "Don't be late for class."], ["be made of", "~로 만들어지다", "The table is made of wood."], ["be proud of", "~을 자랑스러워하다", "I am proud of my family."], ["be similar to", "~와 비슷하다", "Korean is similar to Japanese."], ["by the way", "그런데", "By the way, where are you going?"], ["each other", "서로", "We help each other."], ["for example", "예를 들어", "Many fruits, for example, apples."], ["for the first time", "처음으로", "I tried sushi for the first time."], ["get off", "내리다", "Get off at the next stop."], ["get on", "타다", "Get on the bus quickly."], ["get up", "일어나다", "I get up at 7 every day."], ["give up", "포기하다", "Never give up your dreams."], ["go on", "계속하다", "Please go on with your story."], ["go out", "외출하다", "Let's go out for dinner."], ["grow up", "자라다", "I grew up in Seoul."], ["have to", "~해야 한다", "I have to study tonight."], ["how about", "~는 어때?", "How about pizza?"], ["in front of", "~앞에", "Stand in front of the door."], ["in the end", "결국", "In the end, we won the game."], ["listen to", "~을 듣다", "I listen to music daily."], ["look after", "돌보다", "Please look after my dog."], ["look at", "~을 보다", "Look at this picture."], ["look for", "~을 찾다", "I'm looking for my keys."], ["look like", "~처럼 보이다", "You look like your father."], ["make friends", "친구를 사귀다", "It's easy to make friends here."], ["of course", "물론", "Of course you can join us."], ["once upon a time", "옛날 옛적에", "Once upon a time, there was a king."], ["pick up", "집어 들다", "Pick up your toys."], ["right away", "즉시", "Come here right away."], ["take a picture", "사진을 찍다", "Take a picture of us."], ["take a walk", "산책하다", "Let's take a walk in the park."], ["take care of", "돌보다", "Take care of yourself."], ["thanks to", "~덕분에", "Thanks to you, I passed."], ["throw away", "버리다", "Throw away the trash."], ["wait for", "기다리다", "I will wait for you."], ["would like to", "~하고 싶다", "I would like to go home."]]}};
+const SITE = {"title": "시험별 필수 어휘 학습기", "description": "수능·토익·공무원·내신 각 100단어 + 50숙어, 총 600개", "brand": "편한가 영어", "groups": [{"key": "suneung", "label": "수능", "color": "#1F6FEB", "sets": [{"key": "words", "label": "단어", "items": [["abandon", "버리다, 포기하다", "He had to abandon his car in the snowstorm."], ["abstract", "추상적인", "Beauty is an abstract concept that varies by culture."], ["accumulate", "축적하다", "Dust tends to accumulate on bookshelves."], ["acknowledge", "인정하다", "She acknowledged her mistake and apologized."], ["adapt", "적응시키다", "Animals must adapt to their environment to survive."], ["adequate", "충분한, 적절한", "The room is adequate for ten people."], ["adopt", "채택하다, 입양하다", "The committee adopted a new policy."], ["advocate", "옹호하다", "She advocates for children's rights."], ["ambiguous", "모호한", "His answer was ambiguous and confusing."], ["analyze", "분석하다", "Scientists analyze data to draw conclusions."], ["anticipate", "예상하다", "We anticipate strong sales next quarter."], ["apparent", "분명한", "It was apparent that he was tired."], ["appropriate", "적절한", "Please wear appropriate clothing for the interview."], ["arbitrary", "임의적인", "The decision seemed arbitrary and unfair."], ["articulate", "명확히 표현하다", "She articulated her thoughts clearly."], ["assert", "주장하다", "He asserted that he was innocent."], ["assume", "가정하다", "Don't assume people know what you mean."], ["attain", "달성하다", "She attained her goal of becoming a doctor."], ["attribute", "~의 탓으로 돌리다", "He attributes his success to hard work."], ["authentic", "진짜의", "This is an authentic Italian recipe."], ["awareness", "인식", "Public awareness of climate change is growing."], ["behalf", "대신, 편", "I am speaking on behalf of my team."], ["beneficial", "유익한", "Exercise is beneficial to health."], ["bias", "편견", "The article showed a clear bias."], ["capacity", "능력, 수용력", "The stadium has a capacity of 50,000."], ["challenge", "도전하다", "She challenged him to a debate."], ["circumstance", "상황", "Under no circumstances should you open this door."], ["coherent", "일관성 있는", "Please write a coherent argument."], ["collaborate", "협력하다", "The two scientists collaborated on the project."], ["compel", "강요하다", "The evidence compelled him to confess."], ["complement", "보완하다", "The wine complements the meal nicely."], ["comprehensive", "포괄적인", "The report is comprehensive and detailed."], ["conceive", "생각해내다", "He conceived a brilliant plan."], ["conform", "따르다, 순응하다", "Students must conform to school rules."], ["consequence", "결과", "Every action has consequences."], ["constitute", "구성하다", "Women constitute 60% of the workforce."], ["contemplate", "숙고하다", "She contemplated her future career."], ["contradict", "모순되다", "His actions contradict his words."], ["contribute", "기여하다", "Many factors contribute to success."], ["controversy", "논란", "The decision caused great controversy."], ["convert", "전환하다", "We converted the garage into an office."], ["convey", "전달하다", "Words cannot convey my gratitude."], ["crucial", "결정적인", "Sleep is crucial for good health."], ["cultivate", "경작하다, 양성하다", "Farmers cultivate the land each spring."], ["deduce", "추론하다", "Sherlock deduced the truth from small clues."], ["dedicate", "헌신하다", "She dedicated her life to teaching."], ["deficient", "부족한", "His diet is deficient in vitamins."], ["demonstrate", "입증하다", "The experiment demonstrates the theory."], ["derive", "유래하다", "Many English words derive from Latin."], ["designate", "지정하다", "This area is designated for parking."], ["deteriorate", "악화되다", "His health began to deteriorate rapidly."], ["devote", "바치다", "He devotes his weekends to family."], ["diminish", "줄어들다", "The pain gradually diminished."], ["discern", "식별하다", "It's hard to discern the truth here."], ["disclose", "공개하다", "He refused to disclose his sources."], ["distinguish", "구별하다", "It's hard to distinguish the twins."], ["distort", "왜곡하다", "The media distorted the facts."], ["diverse", "다양한", "New York is a diverse city."], ["dominate", "지배하다", "The team dominated the match."], ["elaborate", "정교한; 자세히 설명하다", "Could you elaborate on that point?"], ["elicit", "이끌어내다", "The teacher tried to elicit answers from students."], ["eliminate", "제거하다", "We must eliminate waste from the process."], ["embrace", "받아들이다", "We should embrace new technology."], ["emphasize", "강조하다", "He emphasized the importance of honesty."], ["encounter", "마주치다", "I encountered an old friend at the store."], ["endorse", "지지하다", "The mayor endorsed the new policy."], ["enhance", "향상시키다", "Music can enhance your mood."], ["enroll", "등록하다", "She enrolled in a Spanish course."], ["equivalent", "동등한", "One dollar is equivalent to about 1,300 won."], ["essential", "필수적인", "Water is essential for life."], ["evaluate", "평가하다", "Teachers evaluate students' performance."], ["evident", "명백한", "It was evident he was lying."], ["evoke", "불러일으키다", "The song evokes childhood memories."], ["exaggerate", "과장하다", "Don't exaggerate the problem."], ["exceed", "초과하다", "Sales exceeded our expectations."], ["exclude", "제외하다", "The price excludes tax."], ["exhibit", "전시하다", "The museum exhibits ancient art."], ["exploit", "착취하다, 이용하다", "Companies should not exploit workers."], ["external", "외부의", "External factors affect our business."], ["fascinate", "매혹하다", "Space fascinates many children."], ["feasible", "실현 가능한", "The plan is feasible with more funding."], ["flourish", "번창하다", "The business flourished last year."], ["fluctuate", "변동하다", "Prices fluctuate daily."], ["foster", "육성하다", "We must foster creativity in schools."], ["fundamental", "근본적인", "Honesty is a fundamental value."], ["genuine", "진실한", "Her smile was genuine."], ["grasp", "이해하다", "It's hard to grasp this concept."], ["hierarchy", "위계", "There is a strict hierarchy in the company."], ["hinder", "방해하다", "Bad weather hindered our progress."], ["hypothesis", "가설", "Scientists test their hypothesis with experiments."], ["illuminate", "밝히다", "The data illuminates the trend."], ["imply", "암시하다", "Silence does not imply consent."], ["inevitable", "피할 수 없는", "Change is inevitable in life."], ["infer", "추론하다", "We can infer the meaning from context."], ["inherent", "내재된", "Risk is inherent in any investment."], ["innovate", "혁신하다", "Companies must innovate to survive."], ["integrate", "통합하다", "We integrate technology into classrooms."], ["interpret", "해석하다", "How do you interpret this poem?"], ["intuition", "직감", "Trust your intuition sometimes."], ["justify", "정당화하다", "The end does not justify the means."]]}, {"key": "idioms", "label": "숙어", "items": [["account for", "설명하다, 차지하다", "How do you account for the missing money?"], ["break down", "고장 나다, 분해되다", "The car broke down on the highway."], ["bring about", "야기하다", "Technology brought about huge changes."], ["carry out", "수행하다", "Scientists carried out the experiment."], ["come across", "우연히 만나다", "I came across an old letter."], ["come up with", "떠올리다", "She came up with a brilliant idea."], ["cope with", "대처하다", "It's hard to cope with stress."], ["count on", "의지하다", "You can count on me anytime."], ["deal with", "다루다", "Managers deal with conflicts daily."], ["depend on", "의존하다", "Children depend on their parents."], ["derive from", "~에서 유래하다", "Many words derive from Greek."], ["die out", "멸종하다", "Many species are dying out."], ["dispose of", "처분하다", "Please dispose of trash properly."], ["draw on", "이용하다", "Writers draw on personal experience."], ["engage in", "참여하다", "Students engage in various activities."], ["fall behind", "뒤처지다", "Don't fall behind in your studies."], ["figure out", "알아내다", "I can't figure out the answer."], ["focus on", "집중하다", "Let's focus on the main topic."], ["for the sake of", "~을 위해", "We work for the sake of our families."], ["get rid of", "없애다", "We need to get rid of clutter."], ["give in", "굴복하다", "Don't give in to peer pressure."], ["give rise to", "야기하다", "Poverty gives rise to crime."], ["hand in", "제출하다", "Please hand in your homework."], ["in addition to", "~외에도", "In addition to English, she speaks French."], ["in spite of", "~에도 불구하고", "In spite of the rain, we went out."], ["in terms of", "~의 관점에서", "Think in terms of long-term benefits."], ["keep up with", "따라가다", "It's hard to keep up with technology."], ["lead to", "초래하다", "Hard work leads to success."], ["let down", "실망시키다", "I won't let you down."], ["live up to", "부응하다", "He lives up to expectations."], ["look into", "조사하다", "Police will look into the matter."], ["look up to", "존경하다", "I look up to my grandfather."], ["make sense", "말이 되다", "Your explanation makes sense."], ["make up for", "보상하다", "I'll make up for my mistake."], ["on behalf of", "~을 대신하여", "I speak on behalf of the team."], ["owing to", "~때문에", "The game was canceled owing to rain."], ["pass away", "돌아가시다", "His grandfather passed away last year."], ["pay attention to", "주의를 기울이다", "Pay attention to details."], ["put off", "미루다", "Don't put off important tasks."], ["put up with", "참다", "I can't put up with this noise."], ["refer to", "언급하다", "Please refer to chapter 3."], ["result in", "결과를 낳다", "Smoking results in poor health."], ["rule out", "배제하다", "We can't rule out that possibility."], ["set aside", "한쪽에 두다", "Set aside time for reading."], ["show up", "나타나다", "He didn't show up to the meeting."], ["stand for", "상징하다", "What does this symbol stand for?"], ["take advantage of", "이용하다", "Take advantage of the sale."], ["take into account", "고려하다", "Take all factors into account."], ["turn out", "판명되다", "It turned out to be a great day."], ["up to date", "최신의", "Keep your software up to date."]]}]}, {"key": "toeic", "label": "토익", "color": "#2DA44E", "sets": [{"key": "words", "label": "단어", "items": [["accommodate", "수용하다", "The hotel can accommodate 200 guests."], ["acquire", "인수하다, 획득하다", "The company acquired a smaller competitor."], ["agenda", "의제", "The meeting agenda was distributed yesterday."], ["allocate", "할당하다", "We allocated $5,000 to marketing."], ["amend", "수정하다", "The contract was amended last week."], ["appliance", "가전제품", "Kitchen appliances are on sale."], ["applicant", "지원자", "We received 50 applicants for the position."], ["appraise", "평가하다", "Managers appraise employees annually."], ["assemble", "조립하다, 모이다", "Workers assemble cars on the line."], ["assignment", "업무, 과제", "I have a new assignment this week."], ["attendance", "출석, 참석", "Attendance at the seminar was strong."], ["authorize", "권한을 부여하다", "Only managers can authorize refunds."], ["beverage", "음료", "Beverages are available at the back."], ["boost", "신장시키다", "The ad campaign boosted sales."], ["brochure", "안내 책자", "Take a brochure for more information."], ["budget", "예산", "We need to stay within budget."], ["campaign", "캠페인", "The marketing campaign was successful."], ["candidate", "후보자", "Three candidates applied for the position."], ["certify", "인증하다", "Our products are certified organic."], ["client", "고객", "The client requested a meeting."], ["commute", "통근하다", "I commute by subway every day."], ["compensate", "보상하다", "We will compensate you for the inconvenience."], ["compile", "편집하다, 모으다", "Please compile the data into a report."], ["complimentary", "무료의", "Breakfast is complimentary for guests."], ["confidential", "기밀의", "This document is confidential."], ["confirm", "확인하다", "Please confirm your reservation."], ["consultant", "컨설턴트", "We hired a consultant for advice."], ["contract", "계약", "We signed a two-year contract."], ["corporate", "기업의", "Corporate policy prohibits this."], ["coverage", "보장, 보도", "The insurance has full coverage."], ["credentials", "자격", "She has impressive credentials."], ["decline", "거절하다, 감소하다", "Sales declined last quarter."], ["deduct", "공제하다", "Taxes are deducted from your paycheck."], ["deliver", "배송하다", "We deliver within 24 hours."], ["department", "부서", "Which department do you work in?"], ["deposit", "보증금, 예치하다", "A deposit is required."], ["distribute", "배포하다", "Please distribute the handouts."], ["document", "문서", "Please sign the document."], ["draft", "초안", "Please review the draft proposal."], ["efficient", "효율적인", "This is a more efficient method."], ["eligible", "자격이 있는", "Are you eligible for the discount?"], ["employee", "직원", "All employees must wear badges."], ["enclose", "동봉하다", "I enclose my resume."], ["ensure", "보장하다", "Please ensure all forms are signed."], ["envelope", "봉투", "Place the letter in the envelope."], ["estimate", "견적", "Please provide a cost estimate."], ["exchange", "교환하다", "You can exchange the item within 30 days."], ["executive", "임원", "The executive will arrive shortly."], ["expand", "확장하다", "The company plans to expand overseas."], ["expense", "비용", "Travel expenses will be reimbursed."], ["expire", "만료되다", "My passport expires next month."], ["facility", "시설", "The facility is open 24 hours."], ["feedback", "피드백", "We welcome your feedback."], ["finance", "재무", "She works in finance."], ["forecast", "예측", "The weather forecast looks good."], ["headquarters", "본사", "Our headquarters is in Seoul."], ["implement", "실행하다", "We will implement the changes next month."], ["inquiry", "문의", "We received an inquiry about the product."], ["install", "설치하다", "Technicians will install the system."], ["inventory", "재고", "Our inventory is running low."], ["invoice", "송장", "Please pay the invoice by Friday."], ["itinerary", "여행 일정", "I'll email you the itinerary."], ["launch", "출시하다", "We will launch the product in June."], ["liability", "책임", "The company has limited liability."], ["maintenance", "유지보수", "Equipment requires regular maintenance."], ["manufacture", "제조하다", "We manufacture electronics."], ["merchandise", "상품", "All merchandise must be returned."], ["merger", "합병", "The merger was announced today."], ["negotiate", "협상하다", "We need to negotiate the terms."], ["notify", "통지하다", "Please notify us of any changes."], ["occupy", "차지하다", "We occupy the 5th floor."], ["operate", "운영하다", "We operate in 20 countries."], ["opportunity", "기회", "This is a great opportunity."], ["outstanding", "미지급의, 뛰어난", "The outstanding balance is $500."], ["overseas", "해외의", "We have overseas offices."], ["patron", "단골 고객", "Loyal patrons receive discounts."], ["policy", "정책", "This is our refund policy."], ["postpone", "연기하다", "The meeting was postponed."], ["premises", "부지, 건물", "Smoking is prohibited on the premises."], ["procedure", "절차", "Follow the standard procedure."], ["proceed", "진행하다", "Please proceed to gate 5."], ["promote", "승진시키다", "She was promoted to manager."], ["purchase", "구매", "Thank you for your purchase."], ["recruit", "모집하다", "We are recruiting new staff."], ["refund", "환불", "We offer a full refund."], ["reimburse", "환급하다", "We will reimburse your expenses."], ["renovate", "개조하다", "The hotel is being renovated."], ["retail", "소매", "She works in retail."], ["revenue", "수익", "Annual revenue increased 10%."], ["schedule", "일정", "Check the schedule for changes."], ["shipment", "발송, 화물", "Your shipment will arrive Tuesday."], ["spreadsheet", "스프레드시트", "Update the spreadsheet weekly."], ["subscription", "구독", "Cancel your subscription anytime."], ["supplier", "공급업체", "We changed suppliers last year."], ["survey", "설문조사", "Please complete this survey."], ["terminate", "종료하다", "Your contract will terminate next month."], ["transaction", "거래", "The transaction was approved."], ["vacancy", "공석", "We have a vacancy in HR."], ["vendor", "판매업체", "The vendor will deliver tomorrow."], ["warehouse", "창고", "Goods are stored in the warehouse."]]}, {"key": "idioms", "label": "숙어", "items": [["account for", "설명하다", "Please account for the missing inventory."], ["apply for", "지원하다", "I want to apply for the position."], ["as soon as possible", "가능한 빨리", "Please reply as soon as possible."], ["ask for", "요청하다", "The customer asked for a refund."], ["attend to", "처리하다", "I'll attend to the matter immediately."], ["be in charge of", "~을 담당하다", "She is in charge of marketing."], ["be subject to", "~의 대상이다", "Prices are subject to change."], ["break down", "고장 나다", "The copier broke down again."], ["bring up", "언급하다", "Don't bring up that topic."], ["call back", "다시 전화하다", "I'll call you back later."], ["call off", "취소하다", "The meeting was called off."], ["carry out", "실행하다", "We will carry out the plan."], ["catch up on", "밀린 일을 처리하다", "I need to catch up on emails."], ["check in", "체크인하다", "Please check in at the desk."], ["check out", "체크아웃하다", "Check out is at 11 AM."], ["come up with", "떠올리다", "We need to come up with a solution."], ["cut down on", "줄이다", "We must cut down on costs."], ["drop off", "내려주다", "I'll drop off the package."], ["fill in for", "대신하다", "Can you fill in for me?"], ["fill out", "작성하다", "Please fill out this form."], ["follow up", "후속 조치하다", "I will follow up next week."], ["get back to", "다시 연락하다", "I'll get back to you soon."], ["give a hand", "도와주다", "Could you give me a hand?"], ["go over", "검토하다", "Let's go over the report."], ["hand in", "제출하다", "Hand in your timesheet by Friday."], ["hand out", "나눠주다", "Please hand out these flyers."], ["hold on", "잠깐 기다리다", "Hold on, I'll transfer you."], ["in advance", "미리", "Pay in advance for a discount."], ["in charge of", "담당하는", "Who is in charge of this project?"], ["keep track of", "기록을 추적하다", "Keep track of your expenses."], ["look forward to", "기대하다", "I look forward to meeting you."], ["look into", "조사하다", "We will look into the issue."], ["on behalf of", "~을 대신하여", "I write on behalf of my client."], ["on schedule", "예정대로", "The flight is on schedule."], ["out of stock", "재고가 없는", "That item is out of stock."], ["pick up", "픽업하다", "I'll pick you up at 3."], ["point out", "지적하다", "Let me point out an error."], ["put off", "미루다", "The launch was put off."], ["run out of", "다 떨어지다", "We ran out of paper."], ["set up", "설치하다, 마련하다", "Set up a meeting tomorrow."], ["sign up for", "가입하다", "Sign up for our newsletter."], ["stand by", "대기하다", "Please stand by for instructions."], ["stock up", "비축하다", "Stock up on office supplies."], ["take care of", "처리하다", "I'll take care of the report."], ["take over", "인수하다", "She will take over the project."], ["take place", "일어나다", "The event takes place Friday."], ["turn down", "거절하다", "They turned down our offer."], ["turn in", "제출하다", "Turn in the form by 5 PM."], ["work out", "운동하다, 해결되다", "Things will work out."], ["wrap up", "마무리하다", "Let's wrap up the meeting."]]}]}, {"key": "gongmuwon", "label": "공무원", "color": "#BF8700", "sets": [{"key": "words", "label": "단어", "items": [["abate", "줄이다, 약화시키다", "The storm finally abated."], ["abdicate", "퇴위하다", "The king abdicated the throne."], ["aberration", "일탈, 이상", "This behavior is an aberration."], ["abhor", "혐오하다", "I abhor any form of violence."], ["abrogate", "폐지하다", "The treaty was abrogated last year."], ["abstain", "삼가다", "She abstains from alcohol."], ["acquiesce", "묵인하다", "He acquiesced to their demands."], ["acrimonious", "신랄한", "The divorce was acrimonious."], ["adamant", "완강한", "She was adamant about going."], ["admonish", "훈계하다", "The judge admonished the defendant."], ["adversary", "적", "He defeated his adversary in court."], ["alleviate", "완화하다", "This medicine alleviates pain."], ["amalgamate", "합병하다", "The two firms amalgamated."], ["ameliorate", "개선하다", "Reforms aim to ameliorate conditions."], ["anomaly", "변칙", "The data shows an anomaly."], ["antipathy", "반감", "He has an antipathy toward bureaucracy."], ["apathy", "무관심", "Voter apathy is a serious issue."], ["arduous", "힘든", "The journey was arduous."], ["articulate", "분명히 말하다", "She articulates her views well."], ["ascertain", "확인하다", "We must ascertain the facts first."], ["assiduous", "근면한", "He is an assiduous student."], ["astute", "영민한", "She is an astute investor."], ["augment", "늘리다", "We will augment the budget."], ["austere", "엄격한, 검소한", "He lived an austere life."], ["autonomous", "자치의", "The region is autonomous."], ["belligerent", "적대적인", "His tone was belligerent."], ["benevolent", "자비로운", "A benevolent donor funded the school."], ["brevity", "간결함", "I appreciate your brevity."], ["cajole", "회유하다", "She cajoled him into helping."], ["candor", "솔직함", "I admire her candor."], ["capricious", "변덕스러운", "The weather is capricious here."], ["censure", "비난하다", "Officials censured the policy."], ["circumvent", "우회하다", "He tried to circumvent the rules."], ["clandestine", "비밀의", "They held clandestine meetings."], ["coerce", "강요하다", "No one can coerce me into lying."], ["cogent", "설득력 있는", "She made a cogent argument."], ["complacent", "자만하는", "Don't become complacent after success."], ["concede", "인정하다", "He conceded defeat."], ["conciliatory", "화해적인", "He took a conciliatory tone."], ["condone", "묵인하다", "We cannot condone such behavior."], ["confound", "당황시키다", "The results confounded scientists."], ["consummate", "완벽한", "She is a consummate professional."], ["contentious", "논쟁적인", "That is a contentious issue."], ["corroborate", "입증하다", "Witnesses corroborated his story."], ["credulous", "잘 믿는", "He is too credulous of strangers."], ["culpable", "유죄의", "The company was culpable for the spill."], ["cursory", "피상적인", "A cursory glance is not enough."], ["dearth", "부족", "There is a dearth of qualified workers."], ["debunk", "폭로하다", "The study debunks common myths."], ["delineate", "윤곽을 그리다", "The contract delineates duties."], ["deride", "조롱하다", "Critics derided his work."], ["desultory", "산만한", "He made desultory remarks."], ["dichotomy", "이분법", "The dichotomy is false."], ["disparate", "이질적인", "The data is from disparate sources."], ["disseminate", "퍼뜨리다", "We disseminate information widely."], ["divulge", "누설하다", "He refused to divulge details."], ["dogmatic", "독단적인", "His dogmatic views are unwelcome."], ["ebullient", "활기찬", "She has an ebullient personality."], ["egregious", "엄청난", "That was an egregious mistake."], ["elicit", "끌어내다", "The question elicited a strong response."], ["eloquent", "웅변의", "He gave an eloquent speech."], ["emulate", "본받다", "Students should emulate good leaders."], ["enervate", "기력을 빼앗다", "The heat enervated us."], ["ephemeral", "일시적인", "Fame is often ephemeral."], ["equivocal", "모호한", "His answer was equivocal."], ["eradicate", "근절하다", "We aim to eradicate poverty."], ["erudite", "박학한", "He is an erudite scholar."], ["esoteric", "난해한", "The lecture was too esoteric."], ["exacerbate", "악화시키다", "Stress can exacerbate illness."], ["exonerate", "무죄임을 입증하다", "New evidence exonerated him."], ["expedient", "편의적인", "It was the most expedient solution."], ["extol", "격찬하다", "Critics extolled the novel."], ["fastidious", "까다로운", "He is fastidious about details."], ["fortuitous", "우연한", "It was a fortuitous meeting."], ["garrulous", "수다스러운", "The garrulous host wouldn't stop talking."], ["gregarious", "사교적인", "She is a gregarious woman."], ["hackneyed", "진부한", "That phrase is hackneyed."], ["impervious", "영향받지 않는", "He is impervious to criticism."], ["impetuous", "충동적인", "Don't make impetuous decisions."], ["inadvertent", "부주의한", "It was an inadvertent error."], ["incessant", "끊임없는", "The incessant noise was annoying."], ["inculcate", "주입시키다", "We inculcate good values in children."], ["indolent", "게으른", "He has become indolent."], ["ineffable", "형언할 수 없는", "The view was ineffable."], ["inveterate", "상습적인", "He is an inveterate gambler."], ["juxtapose", "병치하다", "The artist juxtaposes light and shadow."], ["laconic", "말수가 적은", "His laconic reply surprised me."], ["lassitude", "무기력", "A feeling of lassitude swept over her."], ["magnanimous", "관대한", "The winner was magnanimous in victory."], ["malign", "비방하다", "He maligned his rivals openly."], ["mitigate", "완화하다", "Steps were taken to mitigate damage."], ["obfuscate", "모호하게 하다", "He tried to obfuscate the truth."], ["obstinate", "완고한", "She is obstinate in her opinions."], ["ostentatious", "과시적인", "His lifestyle is ostentatious."], ["perfunctory", "형식적인", "He gave a perfunctory nod."], ["propitious", "좋은 조건의", "This is a propitious time to invest."], ["recalcitrant", "반항적인", "The recalcitrant student was suspended."], ["tacit", "암묵적인", "We had a tacit agreement."], ["ubiquitous", "어디에나 있는", "Smartphones are ubiquitous now."], ["vindicate", "정당함을 입증하다", "Time will vindicate his decision."]]}, {"key": "idioms", "label": "숙어", "items": [["abide by", "준수하다", "We must abide by the law."], ["account for", "설명하다", "The minister must account for the policy."], ["adhere to", "고수하다", "Adhere to the regulations strictly."], ["amount to", "~에 달하다", "Damages amount to millions."], ["at the expense of", "~을 희생하여", "Growth at the expense of environment is unwise."], ["at the mercy of", "~의 처분에 맡겨진", "Citizens are at the mercy of policy changes."], ["be averse to", "싫어하다", "He is averse to taking risks."], ["be conducive to", "~에 도움이 되다", "This climate is conducive to learning."], ["be obliged to", "~할 의무가 있다", "Officials are obliged to disclose assets."], ["be subject to", "~의 영향을 받다", "All laws are subject to revision."], ["bear in mind", "명심하다", "Bear in mind the consequences."], ["by virtue of", "~덕분에", "By virtue of his office, he chairs the meeting."], ["come to terms with", "받아들이다", "She came to terms with the loss."], ["comply with", "준수하다", "All firms must comply with the law."], ["dispense with", "없이 지내다", "We can dispense with formalities."], ["dwell on", "~에 대해 곱씹다", "Don't dwell on the past."], ["embark on", "착수하다", "He embarked on a new career."], ["fall short of", "미치지 못하다", "Results fell short of expectations."], ["for the sake of", "~을 위해", "For the sake of justice, we proceed."], ["give credence to", "신뢰하다", "I give credence to her testimony."], ["give rise to", "야기하다", "This policy will give rise to debate."], ["have a bearing on", "관련 있다", "This evidence has a bearing on the case."], ["in accordance with", "~에 따라", "In accordance with the rules."], ["in conjunction with", "~와 함께", "In conjunction with other agencies."], ["in lieu of", "~대신에", "Cash in lieu of vacation days."], ["in the wake of", "~의 여파로", "In the wake of the scandal."], ["lend itself to", "~에 적합하다", "The space lends itself to events."], ["live up to", "부응하다", "He failed to live up to his promise."], ["make allowance for", "감안하다", "Make allowance for delays."], ["make headway", "진척시키다", "We made headway on the bill."], ["on the verge of", "~의 직전에", "The country is on the verge of reform."], ["pave the way for", "길을 열다", "This paves the way for change."], ["pay heed to", "주의를 기울이다", "Pay heed to expert warnings."], ["play a role in", "역할을 하다", "Citizens play a role in democracy."], ["prevail over", "우세하다", "Justice will prevail over corruption."], ["put forward", "제시하다", "The minister put forward a proposal."], ["rest on", "~에 달려 있다", "Success rests on cooperation."], ["shed light on", "밝히다", "The report shed light on the issue."], ["stem from", "~에서 비롯되다", "Conflict stems from inequality."], ["subject to", "~을 조건으로", "Subject to approval by the board."], ["take exception to", "이의를 제기하다", "I take exception to that claim."], ["take into account", "고려하다", "Take into account public opinion."], ["take issue with", "이의를 제기하다", "I take issue with that point."], ["take precedence over", "우선하다", "Safety takes precedence over speed."], ["to the detriment of", "~에 손해를 끼치며", "Profits at the detriment of welfare."], ["tantamount to", "~에 해당하는", "This is tantamount to fraud."], ["with regard to", "~에 관하여", "With regard to your request."], ["with the exception of", "~을 제외하고", "With the exception of holidays."], ["without prejudice", "권리 침해 없이", "Settled without prejudice."], ["yield to", "굴복하다", "The government yielded to pressure."]]}]}, {"key": "naesin", "label": "내신", "color": "#8250DF", "sets": [{"key": "words", "label": "단어", "items": [["ability", "능력", "She has the ability to learn quickly."], ["accept", "받아들이다", "I accept your apology."], ["achieve", "성취하다", "You can achieve your dreams."], ["activity", "활동", "Sports is my favorite activity."], ["add", "더하다", "Add some sugar to the tea."], ["afraid", "두려워하는", "Don't be afraid of the dark."], ["agree", "동의하다", "I agree with you."], ["allow", "허락하다", "My parents allow me to stay out."], ["answer", "답하다", "Please answer the question."], ["appear", "나타나다", "A rainbow appeared after the rain."], ["believe", "믿다", "I believe in you."], ["borrow", "빌리다", "Can I borrow your pen?"], ["break", "부수다", "Don't break the window."], ["bring", "가져오다", "Please bring your textbook."], ["busy", "바쁜", "I am busy this weekend."], ["careful", "조심하는", "Be careful crossing the street."], ["catch", "잡다", "Catch the ball!"], ["cause", "원인", "What is the cause of the problem?"], ["change", "바꾸다", "I want to change my clothes."], ["choose", "선택하다", "Choose your favorite color."], ["clean", "깨끗한", "Keep your room clean."], ["clear", "명확한", "The instructions are clear."], ["close", "가까운", "The store is close to my house."], ["collect", "모으다", "I collect stamps."], ["compare", "비교하다", "Don't compare yourself to others."], ["complete", "완료하다", "Complete the assignment by Friday."], ["continue", "계속하다", "Please continue your story."], ["cool", "시원한", "The water is cool."], ["create", "만들다", "Artists create beautiful works."], ["cross", "건너다", "Cross the street carefully."], ["dangerous", "위험한", "Smoking is dangerous."], ["decide", "결정하다", "I can't decide what to wear."], ["delicious", "맛있는", "This pizza is delicious."], ["describe", "묘사하다", "Describe your hometown."], ["develop", "발전시키다", "Read books to develop your mind."], ["difficult", "어려운", "This question is difficult."], ["discover", "발견하다", "Scientists discover new things daily."], ["drop", "떨어뜨리다", "Don't drop the glass."], ["enjoy", "즐기다", "I enjoy reading books."], ["enough", "충분한", "We have enough food."], ["especially", "특히", "I love fruit, especially apples."], ["excited", "신난", "I am excited for the trip."], ["exercise", "운동", "Daily exercise is good for you."], ["experience", "경험", "I have no experience in cooking."], ["explain", "설명하다", "Can you explain this to me?"], ["famous", "유명한", "He is a famous singer."], ["feel", "느끼다", "I feel happy today."], ["finally", "마침내", "We finally arrived home."], ["follow", "따르다", "Follow the rules."], ["forget", "잊다", "Don't forget your umbrella."], ["friendly", "친절한", "She is very friendly."], ["future", "미래", "What do you want to do in the future?"], ["happen", "일어나다", "What happened yesterday?"], ["heavy", "무거운", "This box is too heavy."], ["helpful", "도움이 되는", "Your advice is helpful."], ["holiday", "휴일", "Tomorrow is a holiday."], ["hope", "희망하다", "I hope you feel better."], ["however", "그러나", "It rained; however, we went out."], ["important", "중요한", "Health is important."], ["interesting", "흥미로운", "This book is interesting."], ["introduce", "소개하다", "Let me introduce my friend."], ["invite", "초대하다", "I will invite you to my party."], ["join", "가입하다", "I joined the soccer club."], ["journey", "여행", "The journey was long."], ["judge", "판단하다", "Don't judge a book by its cover."], ["kind", "친절한", "She is a kind person."], ["learn", "배우다", "I learn English every day."], ["leave", "떠나다", "I leave for school at 8."], ["lend", "빌려주다", "Can you lend me a book?"], ["lonely", "외로운", "He felt lonely without friends."], ["lose", "잃다", "Don't lose your keys."], ["lucky", "운이 좋은", "You are lucky to have such friends."], ["memory", "기억", "I have a good memory."], ["mistake", "실수", "Everyone makes mistakes."], ["nervous", "긴장한", "I'm nervous about the test."], ["notice", "알아차리다", "I didn't notice the sign."], ["offer", "제안하다", "He offered me a job."], ["often", "자주", "I often go to the library."], ["opinion", "의견", "What's your opinion?"], ["peace", "평화", "We all want peace."], ["perhaps", "아마도", "Perhaps it will rain later."], ["plan", "계획", "What are your plans for tomorrow?"], ["popular", "인기 있는", "K-pop is popular worldwide."], ["practice", "연습하다", "Practice makes perfect."], ["prepare", "준비하다", "Prepare for the exam carefully."], ["present", "선물", "I got a present for my birthday."], ["probably", "아마도", "It will probably rain."], ["promise", "약속하다", "I promise to help you."], ["protect", "보호하다", "Parents protect their children."], ["proud", "자랑스러운", "I am proud of you."], ["receive", "받다", "I received a letter today."], ["remember", "기억하다", "Remember to lock the door."], ["respect", "존경하다", "I respect my teachers."], ["return", "돌아오다", "When will you return?"], ["several", "몇몇의", "I have several friends here."], ["share", "공유하다", "Share your toys with others."], ["solve", "해결하다", "Let's solve this problem together."], ["special", "특별한", "Today is a special day."], ["suggest", "제안하다", "I suggest we leave now."], ["wonderful", "멋진", "We had a wonderful time."]]}, {"key": "idioms", "label": "숙어", "items": [["a lot of", "많은", "I have a lot of homework."], ["ask for", "요청하다", "Ask for help when needed."], ["at first", "처음에는", "At first, I was nervous."], ["at last", "마침내", "At last, the bus arrived."], ["at least", "적어도", "Sleep at least 8 hours."], ["at the same time", "동시에", "We arrived at the same time."], ["be able to", "~할 수 있다", "I am able to swim."], ["be afraid of", "~을 두려워하다", "I am afraid of spiders."], ["be busy with", "~로 바쁘다", "She is busy with homework."], ["be famous for", "~로 유명하다", "Korea is famous for kimchi."], ["be filled with", "~로 가득 차다", "The box is filled with books."], ["be full of", "~로 가득하다", "The room is full of people."], ["be good at", "~을 잘하다", "He is good at math."], ["be interested in", "~에 흥미가 있다", "I am interested in music."], ["be late for", "~에 늦다", "Don't be late for class."], ["be made of", "~로 만들어지다", "The table is made of wood."], ["be proud of", "~을 자랑스러워하다", "I am proud of my family."], ["be similar to", "~와 비슷하다", "Korean is similar to Japanese."], ["by the way", "그런데", "By the way, where are you going?"], ["each other", "서로", "We help each other."], ["for example", "예를 들어", "Many fruits, for example, apples."], ["for the first time", "처음으로", "I tried sushi for the first time."], ["get off", "내리다", "Get off at the next stop."], ["get on", "타다", "Get on the bus quickly."], ["get up", "일어나다", "I get up at 7 every day."], ["give up", "포기하다", "Never give up your dreams."], ["go on", "계속하다", "Please go on with your story."], ["go out", "외출하다", "Let's go out for dinner."], ["grow up", "자라다", "I grew up in Seoul."], ["have to", "~해야 한다", "I have to study tonight."], ["how about", "~는 어때?", "How about pizza?"], ["in front of", "~앞에", "Stand in front of the door."], ["in the end", "결국", "In the end, we won the game."], ["listen to", "~을 듣다", "I listen to music daily."], ["look after", "돌보다", "Please look after my dog."], ["look at", "~을 보다", "Look at this picture."], ["look for", "~을 찾다", "I'm looking for my keys."], ["look like", "~처럼 보이다", "You look like your father."], ["make friends", "친구를 사귀다", "It's easy to make friends here."], ["of course", "물론", "Of course you can join us."], ["once upon a time", "옛날 옛적에", "Once upon a time, there was a king."], ["pick up", "집어 들다", "Pick up your toys."], ["right away", "즉시", "Come here right away."], ["take a picture", "사진을 찍다", "Take a picture of us."], ["take a walk", "산책하다", "Let's take a walk in the park."], ["take care of", "돌보다", "Take care of yourself."], ["thanks to", "~덕분에", "Thanks to you, I passed."], ["throw away", "버리다", "Throw away the trash."], ["wait for", "기다리다", "I will wait for you."], ["would like to", "~하고 싶다", "I would like to go home."]]}]}]};
 
 const SVG = {
   speaker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>',
@@ -452,35 +395,42 @@ const SVG = {
   print:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>',
 };
 
+const GROUPS = SITE.groups;
+const GROUP_BY_KEY = Object.fromEntries(GROUPS.map(g => [g.key, g]));
+function setsOf(gkey) { return GROUP_BY_KEY[gkey].sets; }
+function setObj(gkey, skey) { return setsOf(gkey).find(s => s.key === skey) || setsOf(gkey)[0]; }
+function setLabel(gkey, skey) { return (setObj(gkey, skey) || {}).label || skey; }
+
 const state = {
-  exam: localStorage.getItem('exam') || 'suneung',
-  kind: localStorage.getItem('kind') || 'words',
+  exam: localStorage.getItem('exam') || GROUPS[0].key,
+  kind: localStorage.getItem('kind') || GROUPS[0].sets[0].key,
   mode: localStorage.getItem('mode') || 'list',
   search: '',
   rate: parseFloat(localStorage.getItem('rate') || '0.95'),
 
-  flashIdx: 0,
-  flashFlipped: false,
+  flashIdx: 0, flashFlipped: false,
 
-  quizDir: localStorage.getItem('quizDir') || 'en2ko',  // en2ko | ko2en
-  quizIdx: 0,
-  quizScore: 0,
-  quizPool: [],
-  quizCurrent: null,
-  quizAnswered: false,
+  quizDir: localStorage.getItem('quizDir') || 'en2ko',
+  quizIdx: 0, quizScore: 0, quizPool: [], quizCurrent: null, quizAnswered: false,
 
-  typeSub: localStorage.getItem('typeSub') || 'meaning', // meaning | audio
-  typeIdx: 0,
-  typeScore: 0,
-  typePool: [],
-  typeAnswered: false,
+  typeSub: localStorage.getItem('typeSub') || 'meaning',
+  typeIdx: 0, typeScore: 0, typePool: [], typeAnswered: false,
 
+  // Print
   printCount: parseInt(localStorage.getItem('printCount') || '25'),
-  printDir: localStorage.getItem('printDir') || 'en2ko',  // blank Korean | blank English
+  printDir: localStorage.getItem('printDir') || 'en2ko',
+  printFormat: localStorage.getItem('printFormat') || 'blank', // blank | choice4
+  printCols: parseInt(localStorage.getItem('printCols') || '1'),
   printWithAnswers: localStorage.getItem('printWithAnswers') !== '0',
+  printWithExample: localStorage.getItem('printWithExample') !== '0',
+  printSchool: localStorage.getItem('printSchool') || '',
   printTitle: localStorage.getItem('printTitle') || '',
   printSeed: 0,
 };
+
+// Validate exam/kind from localStorage
+if (!GROUP_BY_KEY[state.exam]) state.exam = GROUPS[0].key;
+if (!setObj(state.exam, state.kind)) state.kind = setsOf(state.exam)[0].key;
 
 const itemKey = (exam, kind, eng) => `${exam}.${kind}.${eng}`;
 const status = JSON.parse(localStorage.getItem('vocab_status') || '{}');
@@ -507,16 +457,14 @@ function speak(text) {
   if (!('speechSynthesis' in window)) return;
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  const v = pickVoice();
-  if (v) u.voice = v;
-  u.lang = 'en-US';
-  u.rate = state.rate;
-  u.pitch = 1.0;
+  const v = pickVoice(); if (v) u.voice = v;
+  u.lang = 'en-US'; u.rate = state.rate; u.pitch = 1.0;
   speechSynthesis.speak(u);
 }
 
 function currentItems() {
-  return DATA[state.exam][state.kind].map(x => ({ eng: x[0], kor: x[1], ex: x[2] }));
+  const s = setObj(state.exam, state.kind);
+  return s.items.map(x => ({ eng: x[0], kor: x[1], ex: x[2] || '' }));
 }
 function filtered() {
   const q = state.search.trim().toLowerCase();
@@ -526,29 +474,30 @@ function filtered() {
   );
 }
 function setAccent() {
-  document.documentElement.style.setProperty('--accent', DATA[state.exam].color);
+  document.documentElement.style.setProperty('--accent', GROUP_BY_KEY[state.exam].color);
 }
 function updateStats() {
-  const items = currentItems();
-  const total = items.length;
+  const items = currentItems(); const total = items.length;
   const knownCount = items.filter(i => status[itemKey(state.exam, state.kind, i.eng)] === 'known').length;
   const pct = total ? Math.round(knownCount / total * 100) : 0;
   document.getElementById('stats').innerHTML =
-    `<b>${DATA[state.exam].label}</b> ${state.kind === 'words' ? '단어' : '숙어'} · 외움 <b>${knownCount}</b>/${total} (${pct}%)`;
+    `<b>${GROUP_BY_KEY[state.exam].label}</b> ${setLabel(state.exam, state.kind)} · 외움 <b>${knownCount}</b>/${total} (${pct}%)`;
 }
 
 function renderTabs() {
-  const tabs = document.getElementById('examTabs');
-  tabs.innerHTML = '';
-  Object.entries(DATA).forEach(([key, v]) => {
+  const tabs = document.getElementById('examTabs'); tabs.innerHTML = '';
+  GROUPS.forEach(g => {
+    const totalItems = g.sets.reduce((sum, s) => sum + s.items.length, 0);
     const btn = document.createElement('button');
-    btn.className = 'tab' + (key === state.exam ? ' active' : '');
-    btn.innerHTML = `${v.label}<span class="count">${v.words.length + v.idioms.length}</span>`;
-    if (key === state.exam) btn.style.background = v.color;
+    btn.className = 'tab' + (g.key === state.exam ? ' active' : '');
+    btn.innerHTML = `${g.label}<span class="count">${totalItems}</span>`;
+    if (g.key === state.exam) btn.style.background = g.color;
     btn.onclick = () => {
-      state.exam = key; localStorage.setItem('exam', key);
-      resetModeStates();
-      render();
+      state.exam = g.key; localStorage.setItem('exam', state.exam);
+      // Ensure kind still valid
+      if (!setObj(state.exam, state.kind)) state.kind = setsOf(state.exam)[0].key;
+      localStorage.setItem('kind', state.kind);
+      resetModeStates(); render();
     };
     tabs.appendChild(btn);
   });
@@ -559,13 +508,25 @@ function resetModeStates() {
   state.typeIdx = 0; state.typeScore = 0; state.typePool = []; state.typeAnswered = false;
 }
 function renderToolbar() {
-  document.querySelectorAll('#kindSeg button').forEach(b => {
-    b.classList.toggle('on', b.dataset.kind === state.kind);
-    b.onclick = () => {
-      state.kind = b.dataset.kind; localStorage.setItem('kind', state.kind);
-      resetModeStates(); render();
-    };
-  });
+  // Kind segmented control — dynamic per group
+  const kindSeg = document.getElementById('kindSeg'); kindSeg.innerHTML = '';
+  const sets = setsOf(state.exam);
+  if (sets.length <= 1) {
+    kindSeg.style.display = 'none';
+  } else {
+    kindSeg.style.display = '';
+    sets.forEach(s => {
+      const b = document.createElement('button');
+      b.dataset.kind = s.key;
+      b.textContent = s.label;
+      if (s.key === state.kind) b.classList.add('on');
+      b.onclick = () => {
+        state.kind = s.key; localStorage.setItem('kind', s.key);
+        resetModeStates(); render();
+      };
+      kindSeg.appendChild(b);
+    });
+  }
   document.querySelectorAll('#modeSeg button').forEach(b => {
     b.classList.toggle('on', b.dataset.mode === state.mode);
     b.onclick = () => {
@@ -584,8 +545,7 @@ function renderToolbar() {
 }
 
 function renderSubbar() {
-  const sb = document.getElementById('subbar');
-  sb.innerHTML = '';
+  const sb = document.getElementById('subbar'); sb.innerHTML = '';
   if (state.mode === 'quiz') {
     sb.innerHTML = `<div class="subbar">
       <label>방향</label>
@@ -595,10 +555,7 @@ function renderSubbar() {
       </div>
     </div>`;
     sb.querySelectorAll('#quizDirSeg button').forEach(b => {
-      b.onclick = () => {
-        state.quizDir = b.dataset.dir; localStorage.setItem('quizDir', state.quizDir);
-        initQuiz(); render();
-      };
+      b.onclick = () => { state.quizDir = b.dataset.dir; localStorage.setItem('quizDir', state.quizDir); initQuiz(); render(); };
     });
   } else if (state.mode === 'typing') {
     sb.innerHTML = `<div class="subbar">
@@ -609,38 +566,63 @@ function renderSubbar() {
       </div>
     </div>`;
     sb.querySelectorAll('#typeSubSeg button').forEach(b => {
-      b.onclick = () => {
-        state.typeSub = b.dataset.sub; localStorage.setItem('typeSub', state.typeSub);
-        initType(); render();
-      };
+      b.onclick = () => { state.typeSub = b.dataset.sub; localStorage.setItem('typeSub', state.typeSub); initType(); render(); };
     });
   } else if (state.mode === 'print') {
     const items = currentItems();
     sb.innerHTML = `<div class="subbar">
+      <label>학교/반</label>
+      <input id="prSchool" type="text" placeholder="예: 편한가 고등학교 2-3" value="${escAttr(state.printSchool)}">
       <label>제목</label>
-      <input id="prTitle" type="text" placeholder="${DATA[state.exam].label} ${state.kind==='words'?'단어':'숙어'} 시험" value="${escAttr(state.printTitle)}">
+      <input id="prTitle" type="text" placeholder="${GROUP_BY_KEY[state.exam].label} ${setLabel(state.exam, state.kind)} 시험" value="${escAttr(state.printTitle)}">
       <label>문항</label>
       <input id="prCount" type="number" min="5" max="${items.length}" step="5" value="${state.printCount}">
+      <label>형식</label>
+      <div class="seg" id="prFormatSeg">
+        <button data-f="blank"   class="${state.printFormat==='blank'?'on':''}">주관식 빈칸</button>
+        <button data-f="choice4" class="${state.printFormat==='choice4'?'on':''}">4지선다</button>
+      </div>
       <label>방향</label>
       <div class="seg" id="prDirSeg">
-        <button data-dir="en2ko" class="${state.printDir==='en2ko'?'on':''}">영→한 빈칸</button>
-        <button data-dir="ko2en" class="${state.printDir==='ko2en'?'on':''}">한→영 빈칸</button>
+        <button data-dir="en2ko" class="${state.printDir==='en2ko'?'on':''}">영→한</button>
+        <button data-dir="ko2en" class="${state.printDir==='ko2en'?'on':''}">한→영</button>
       </div>
-      <label class="ck"><input id="prAns" type="checkbox" ${state.printWithAnswers?'checked':''}> 정답표 포함</label>
+      <label>단</label>
+      <div class="seg" id="prColsSeg">
+        <button data-c="1" class="${state.printCols===1?'on':''}">1단</button>
+        <button data-c="2" class="${state.printCols===2?'on':''}">2단</button>
+      </div>
+      <label class="ck"><input id="prAns" type="checkbox" ${state.printWithAnswers?'checked':''}> 정답표</label>
+      <label class="ck"><input id="prEx" type="checkbox" ${state.printWithExample?'checked':''}> 예문</label>
       <button class="navbtn" id="prShuffle">${SVG.shuffle} 새 문제</button>
       <button class="navbtn primary" id="prPrint">${SVG.print} 인쇄</button>
     </div>`;
-    document.getElementById('prTitle').oninput = (e) => { state.printTitle = e.target.value; localStorage.setItem('printTitle', state.printTitle); };
+    const bindText = (id, key) => {
+      document.getElementById(id).oninput = (e) => { state[key] = e.target.value; localStorage.setItem(key, state[key]); renderPanel(); };
+    };
+    bindText('prSchool', 'printSchool');
+    bindText('prTitle', 'printTitle');
     document.getElementById('prCount').oninput = (e) => {
       state.printCount = Math.max(5, Math.min(items.length, parseInt(e.target.value)||25));
       localStorage.setItem('printCount', state.printCount); renderPanel();
     };
+    sb.querySelectorAll('#prFormatSeg button').forEach(b => {
+      b.onclick = () => { state.printFormat = b.dataset.f; localStorage.setItem('printFormat', state.printFormat); renderSubbar(); renderPanel(); };
+    });
     sb.querySelectorAll('#prDirSeg button').forEach(b => {
       b.onclick = () => { state.printDir = b.dataset.dir; localStorage.setItem('printDir', state.printDir); renderSubbar(); renderPanel(); };
+    });
+    sb.querySelectorAll('#prColsSeg button').forEach(b => {
+      b.onclick = () => { state.printCols = parseInt(b.dataset.c); localStorage.setItem('printCols', state.printCols); renderSubbar(); renderPanel(); };
     });
     document.getElementById('prAns').onchange = (e) => {
       state.printWithAnswers = e.target.checked;
       localStorage.setItem('printWithAnswers', state.printWithAnswers ? '1' : '0');
+      renderPanel();
+    };
+    document.getElementById('prEx').onchange = (e) => {
+      state.printWithExample = e.target.checked;
+      localStorage.setItem('printWithExample', state.printWithExample ? '1' : '0');
       renderPanel();
     };
     document.getElementById('prShuffle').onclick = () => { state.printSeed = Math.random(); renderPanel(); };
@@ -664,11 +646,8 @@ function listHTML() {
   if (!items.length) return '<div class="empty">검색 결과가 없습니다.</div>';
   let html = `<div class="list">
     <div class="row head">
-      <div class="no">#</div>
-      <div>English</div>
-      <div>Korean</div>
-      <div class="ex-head">Example</div>
-      <div style="text-align:right">Action</div>
+      <div class="no">#</div><div>English</div><div>Korean</div>
+      <div class="ex-head">Example</div><div style="text-align:right">Action</div>
     </div>`;
   items.forEach((it, i) => {
     const k = itemKey(state.exam, state.kind, it.eng);
@@ -686,8 +665,7 @@ function listHTML() {
       </div>
     </div>`;
   });
-  html += `</div>`;
-  return html;
+  return html + `</div>`;
 }
 
 function flashHTML() {
@@ -739,11 +717,9 @@ function quizHTML() {
   if (!state.quizPool.length) initQuiz();
   if (!state.quizCurrent) return '<div class="empty">표시할 항목이 없습니다.</div>';
   const { target, options } = state.quizCurrent;
-  const total = state.quizPool.length;
-  const cur = state.quizIdx + 1;
+  const total = state.quizPool.length, cur = state.quizIdx + 1;
   const pct = Math.round(((cur - 1) / total) * 100);
   const isEn2Ko = state.quizDir === 'en2ko';
-
   const promptText = isEn2Ko ? target.eng : target.kor;
   const questionLabel = isEn2Ko ? '다음 단어의 뜻은?' : '다음 뜻에 해당하는 영어는?';
   const speakBtn = isEn2Ko ? `<button class="iconbtn" data-act="speak" title="발음">${SVG.speaker}</button>` : '';
@@ -752,20 +728,15 @@ function quizHTML() {
   options.forEach((o, i) => {
     const optText = isEn2Ko ? o.kor : o.eng;
     optHtml += `<button class="quiz-opt" data-eng="${escAttr(o.eng)}">
-      <span class="lbl">${String.fromCharCode(65 + i)}</span>
-      <span>${escHtml(optText)}</span>
+      <span class="lbl">${String.fromCharCode(65 + i)}</span><span>${escHtml(optText)}</span>
     </button>`;
   });
-
   return `<div class="quiz-wrap">
-    <div class="quiz-bar">
-      <span>${cur} / ${total}</span>
-      <span>점수 <b>${state.quizScore}</b></span>
-    </div>
+    <div class="quiz-bar"><span>${cur} / ${total}</span><span>점수 <b>${state.quizScore}</b></span></div>
     <div class="quiz-progress"><div style="width:${pct}%"></div></div>
     <div class="quiz-question">${questionLabel}</div>
     <div class="quiz-prompt">${escHtml(promptText)} ${speakBtn}</div>
-    <div class="quiz-options" id="quizOpts">${optHtml}</div>
+    <div class="quiz-options">${optHtml}</div>
     <div class="quiz-feedback" id="quizFeedback"></div>
   </div>`;
 }
@@ -780,20 +751,14 @@ function typeHTML() {
   if (!state.typePool.length) initType();
   const it = typeCurrent();
   if (!it) return '<div class="empty">표시할 항목이 없습니다.</div>';
-  const total = state.typePool.length;
-  const cur = state.typeIdx + 1;
+  const total = state.typePool.length, cur = state.typeIdx + 1;
   const pct = Math.round(((cur - 1) / total) * 100);
-
   const promptHTML = state.typeSub === 'audio'
     ? `<div class="type-prompt audio">🔊 들은 단어를 입력하세요</div>
        <button class="navbtn" id="typeReplay">${SVG.speaker} 다시 듣기</button>`
     : `<div class="type-prompt">${escHtml(it.kor)}</div>`;
-
   return `<div class="type-wrap">
-    <div class="quiz-bar" style="max-width:560px;">
-      <span>${cur} / ${total}</span>
-      <span>점수 <b>${state.typeScore}</b></span>
-    </div>
+    <div class="quiz-bar" style="max-width:560px;"><span>${cur} / ${total}</span><span>점수 <b>${state.typeScore}</b></span></div>
     <div class="quiz-progress" style="max-width:560px;"><div style="width:${pct}%"></div></div>
     <div class="type-card">
       ${promptHTML}
@@ -809,79 +774,150 @@ function typeHTML() {
 }
 
 // PRINT SHEET
-function pickPrintSet() {
-  // Deterministic per printSeed/exam/kind/count for stable view until shuffle
-  const items = currentItems().slice();
-  // simple seeded shuffle using printSeed
-  const seed = state.printSeed || 0.13;
-  function rng(s) { let t = Math.floor((s*1e9 + 1) ^ 0x6D2B79F5); return function() {
-    t |= 0; t = t + 0x6D2B79F5 | 0;
-    let r = Math.imul(t ^ t >>> 15, 1 | t);
-    r = r + Math.imul(r ^ r >>> 7, 61 | r) ^ r;
-    return ((r ^ r >>> 14) >>> 0) / 4294967296;
-  };}
-  const rnd = rng(seed + state.exam.length * 0.07 + (state.kind === 'words' ? 1 : 3));
-  for (let i = items.length - 1; i > 0; i--) {
+function seededShuffle(arr, seed) {
+  const a = arr.slice();
+  let s = seed || 0.13;
+  function rnd() { s = (s * 9301 + 49297) % 233280; return s / 233280; }
+  for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(rnd() * (i + 1));
-    [items[i], items[j]] = [items[j], items[i]];
+    [a[i], a[j]] = [a[j], a[i]];
   }
-  return items.slice(0, Math.min(state.printCount, items.length));
+  return a;
+}
+function pickPrintSet() {
+  const items = currentItems().slice();
+  const seed = (state.printSeed || 0.13) + state.exam.length * 0.07 + (state.kind.length * 0.03);
+  return seededShuffle(items, seed).slice(0, Math.min(state.printCount, items.length));
 }
 function printHTML() {
   const items = pickPrintSet();
-  const title = state.printTitle || `${DATA[state.exam].label} ${state.kind === 'words' ? '단어' : '숙어'} 시험`;
+  const title = state.printTitle || `${GROUP_BY_KEY[state.exam].label} ${setLabel(state.exam, state.kind)} 시험`;
   const isEn2Ko = state.printDir === 'en2ko';
   const today = new Date();
   const dateStr = `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')}`;
+  const schoolLine = state.printSchool ? `<div class="h-sub">${escHtml(state.printSchool)}</div>` : '';
+  const brand = SITE.brand ? `<div class="h-brand">${escHtml(SITE.brand)}</div>` : '';
 
-  let qRows = '';
-  items.forEach((it, i) => {
-    if (isEn2Ko) {
-      qRows += `<tr>
-        <td class="no">${i+1}.</td>
-        <td class="q">${escHtml(it.eng)}<span class="ex-mini">${escHtml(it.ex)}</span></td>
-        <td class="blank"><span class="line">&nbsp;</span></td>
-      </tr>`;
+  let body = '';
+  const choices = [];
+  if (state.printFormat === 'choice4') {
+    // For each item, pick 3 distractors from the full set
+    const pool = currentItems();
+    items.forEach((it, i) => {
+      const distractors = seededShuffle(pool.filter(x => x.eng !== it.eng), state.printSeed + i * 0.11).slice(0, 3);
+      const opts = seededShuffle([it, ...distractors], state.printSeed + i * 0.31);
+      const correctIdx = opts.findIndex(o => o.eng === it.eng);
+      choices.push({ q: it, opts, correctIdx });
+    });
+    let optBlocks = '';
+    choices.forEach((c, i) => {
+      const qText = isEn2Ko ? c.q.eng : c.q.kor;
+      const exLine = (state.printWithExample && isEn2Ko && c.q.ex)
+        ? `<div class="ex-mini" style="font-size:8.5pt;color:#777;font-style:italic;margin-top:2px;">${escHtml(c.q.ex)}</div>` : '';
+      const optHtml = c.opts.map((o, j) => {
+        const t = isEn2Ko ? o.kor : o.eng;
+        return `<span><b>${'①②③④'[j]}</b> ${escHtml(t)}</span>`;
+      }).join('');
+      optBlocks += `<div class="choice-q">
+        <div class="head"><span class="num">${i+1}.</span> ${escHtml(qText)}</div>
+        ${exLine}
+        <div class="opts">${optHtml}</div>
+      </div>`;
+    });
+    body = optBlocks;
+  } else {
+    // Blank format
+    let rows = '';
+    items.forEach((it, i) => {
+      if (isEn2Ko) {
+        const exLine = state.printWithExample && it.ex ? `<span class="ex-mini">${escHtml(it.ex)}</span>` : '';
+        rows += `<tr>
+          <td class="no">${i+1}.</td>
+          <td class="q">${escHtml(it.eng)}${exLine}</td>
+          <td class="blank"><span class="line">&nbsp;</span></td>
+        </tr>`;
+      } else {
+        rows += `<tr>
+          <td class="no">${i+1}.</td>
+          <td class="q">${escHtml(it.kor)}</td>
+          <td class="blank"><span class="line">&nbsp;</span></td>
+        </tr>`;
+      }
+    });
+    body = `<table class="qtable ${state.printCols===2?'two-col':''}"><tbody>${rows}</tbody></table>`;
+  }
+
+  // Answer sheet
+  let ansBlock = '';
+  if (state.printWithAnswers) {
+    if (state.printFormat === 'choice4') {
+      // Split answers into 2 columns
+      const half = Math.ceil(choices.length / 2);
+      const renderCol = (start, end) => {
+        let html = '<table>';
+        for (let i = start; i < end; i++) {
+          const c = choices[i];
+          html += `<tr><td class="no">${i+1}.</td><td class="a">${'①②③④'[c.correctIdx]}</td><td>${escHtml(isEn2Ko ? c.q.kor : c.q.eng)}</td></tr>`;
+        }
+        return html + '</table>';
+      };
+      ansBlock = `<div class="ans-grid">${renderCol(0, half)}${renderCol(half, choices.length)}</div>`;
     } else {
-      qRows += `<tr>
-        <td class="no">${i+1}.</td>
-        <td class="q">${escHtml(it.kor)}</td>
-        <td class="blank"><span class="line">&nbsp;</span></td>
-      </tr>`;
+      const half = Math.ceil(items.length / 2);
+      const renderCol = (start, end) => {
+        let html = '<table>';
+        for (let i = start; i < end; i++) {
+          const it = items[i];
+          html += `<tr><td class="no">${i+1}.</td><td class="q">${escHtml(isEn2Ko ? it.eng : it.kor)}</td><td class="a">${escHtml(isEn2Ko ? it.kor : it.eng)}</td></tr>`;
+        }
+        return html + '</table>';
+      };
+      ansBlock = `<div class="ans-grid">${renderCol(0, half)}${renderCol(half, items.length)}</div>`;
     }
-  });
-
-  let ansRows = '';
-  items.forEach((it, i) => {
-    const ans = isEn2Ko ? it.kor : it.eng;
-    ansRows += `<tr>
-      <td class="no">${i+1}.</td>
-      <td class="q">${escHtml(isEn2Ko ? it.eng : it.kor)}</td>
-      <td class="ans">${escHtml(ans)}</td>
-    </tr>`;
-  });
+  }
 
   const answerSheet = state.printWithAnswers ? `
     <div class="sheet answers">
-      <h1>정답 — ${escHtml(title)}</h1>
-      <div class="meta">
-        <span><b>날짜</b> ${dateStr}</span>
-        <span><b>총 문항</b> ${items.length}문제</span>
+      <div class="sheet-head">
+        <div>
+          <h1 class="h-title">정답 — ${escHtml(title)}</h1>
+          ${schoolLine}
+        </div>
+        ${brand}
       </div>
-      <table>${ansRows}</table>
+      <div class="meta-grid">
+        <div class="meta-cell"><b>날짜</b> <u>&nbsp;${dateStr}&nbsp;</u></div>
+        <div class="meta-cell"><b>총 문항</b> <u>&nbsp;${items.length}문제&nbsp;</u></div>
+      </div>
+      ${ansBlock}
+      <div class="sheet-foot">
+        <span>${escHtml(title)} — 정답</span>
+        <span>2 / 2</span>
+      </div>
     </div>` : '';
 
   return `<div class="print-wrap">
     <div class="print-preview">
       <div class="sheet">
-        <h1>${escHtml(title)}</h1>
-        <div class="meta">
-          <span><b>이름</b> <u>&nbsp;</u></span>
-          <span><b>학번</b> <u>&nbsp;</u></span>
-          <span><b>날짜</b> ${dateStr}</span>
-          <span><b>점수</b> <u>&nbsp;</u> / ${items.length}</span>
+        <div class="sheet-head">
+          <div>
+            <h1 class="h-title">${escHtml(title)}</h1>
+            ${schoolLine}
+          </div>
+          ${brand}
         </div>
-        <table>${qRows}</table>
+        <div class="meta-grid">
+          <div class="meta-cell"><b>학년</b> <u></u></div>
+          <div class="meta-cell"><b>반</b> <u></u></div>
+          <div class="meta-cell"><b>번호</b> <u></u></div>
+          <div class="meta-cell" style="grid-column: span 2;"><b>이름</b> <u></u></div>
+          <div class="meta-cell"><b>점수</b> <u></u> / ${items.length}</div>
+        </div>
+        ${body}
+        <div class="sheet-foot">
+          <span>${escHtml(title)}</span>
+          <span>${state.printWithAnswers ? '1 / 2' : '1 / 1'}</span>
+        </div>
       </div>
       ${answerSheet}
     </div>
@@ -905,8 +941,7 @@ function bindPanelEvents() {
           if (act === 'known') {
             const k = itemKey(state.exam, state.kind, eng);
             status[k] = status[k] === 'known' ? null : 'known';
-            saveStatus();
-            renderPanel();
+            saveStatus(); renderPanel();
           }
         };
       });
@@ -1006,13 +1041,11 @@ function bindPanelEvents() {
 function submitType() {
   if (state.typeAnswered) { advanceType(); return; }
   const input = document.getElementById('typeInput');
-  const it = typeCurrent();
-  if (!it || !input) return;
+  const it = typeCurrent(); if (!it || !input) return;
   const guess = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
   const target = it.eng.toLowerCase().trim();
   const isCorrect = guess === target;
-  state.typeAnswered = true;
-  input.disabled = true;
+  state.typeAnswered = true; input.disabled = true;
   input.classList.add(isCorrect ? 'correct' : 'wrong');
   const fb = document.getElementById('typeFb');
   fb.className = 'type-feedback ' + (isCorrect ? 'ok' : 'bad');
@@ -1026,15 +1059,13 @@ function submitType() {
   document.getElementById('typeSubmit').textContent = '다음 →';
 }
 function advanceType() {
-  state.typeIdx++;
-  state.typeAnswered = false;
+  state.typeIdx++; state.typeAnswered = false;
   if (state.typeIdx >= state.typePool.length) {
     document.getElementById('panel').innerHTML = resultHTML(state.typeScore, state.typePool.length, 'initType');
     return;
   }
   renderPanel();
 }
-
 function resultHTML(score, total, restartFn) {
   const pct = Math.round(score/total*100);
   return `<div class="empty" style="padding:80px 20px;">
@@ -1051,9 +1082,7 @@ function shuffle(arr) {
   }
   return arr;
 }
-function escHtml(s) {
-  return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
-}
+function escHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 function escAttr(s) { return escHtml(s); }
 
 document.addEventListener('keydown', (e) => {
@@ -1068,10 +1097,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 function render() { setAccent(); renderTabs(); renderToolbar(); renderSubbar(); renderPanel(); }
-
-window.initQuiz = initQuiz; window.initType = initType;
-window.renderPanel = renderPanel; window.state = state;
-
+window.initQuiz = initQuiz; window.initType = initType; window.renderPanel = renderPanel; window.state = state;
 render();
 </script>
 </body>

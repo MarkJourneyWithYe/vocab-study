@@ -1,0 +1,37 @@
+# 시험별 필수 어휘 학습기 — manifest for vocab_site_builder
+#
+# Build:  python3 ~/tools/vocab_site_builder/build.py --manifest site.yaml --out index.html
+# Deploy: ...same + --deploy --repo vocab-study
+
+title: "시험별 필수 어휘 학습기"
+description: "수능·토익·공무원·내신 각 100단어 + 50숙어, 총 600개"
+brand: "편한가 영어"
+
+groups:
+  - key: suneung
+    label: 수능
+    color: "#1F6FEB"
+    sets:
+      - {key: words,  label: 단어, source: data/suneung_words.csv}
+      - {key: idioms, label: 숙어, source: data/suneung_idioms.csv}
+
+  - key: toeic
+    label: 토익
+    color: "#2DA44E"
+    sets:
+      - {key: words,  label: 단어, source: data/toeic_words.csv}
+      - {key: idioms, label: 숙어, source: data/toeic_idioms.csv}
+
+  - key: gongmuwon
+    label: 공무원
+    color: "#BF8700"
+    sets:
+      - {key: words,  label: 단어, source: data/gongmuwon_words.csv}
+      - {key: idioms, label: 숙어, source: data/gongmuwon_idioms.csv}
+
+  - key: naesin
+    label: 내신
+    color: "#8250DF"
+    sets:
+      - {key: words,  label: 단어, source: data/naesin_words.csv}
+      - {key: idioms, label: 숙어, source: data/naesin_idioms.csv}
