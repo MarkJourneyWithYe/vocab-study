@@ -2,7 +2,7 @@
 
 각 시험별 **필수 단어 100 + 숙어 50**, 총 **600개** 어휘 인터랙티브 학습기.
 
-🌐 **Live**: https://vocab-study.vercel.app
+🌐 **Live**: https://vocab-study-eight.vercel.app
 
 ## 기능
 
