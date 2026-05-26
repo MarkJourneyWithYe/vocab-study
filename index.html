@@ -36,23 +36,23 @@
   }
   @media (prefers-color-scheme: dark) {
     :root.auto {
-      --bg: #1A1A1A;
-      --bg-soft: #242422;
-      --card: #2A2A28;
-      --line: #3D3A35;
-      --text: #F1F3F5;
-      --muted: #CED4DA;
-      --dim: #868E96;
-      --brand: #FFA94D;
-      --brand-soft: #663400;
-      --accent: #74C0FC;
-      --accent-soft: #1864AB;
-      --ok: #69DB7C;
-      --ok-soft: #1B5E1F;
-      --bad: #FF8787;
-      --bad-soft: #5C1A1A;
-      --known: #C0EB75;
-      --known-soft: #2B4A0E;
+      --bg: #28251F;
+      --bg-soft: #322E27;
+      --card: #3A362E;
+      --line: #524C42;
+      --text: #F5EFDF;
+      --muted: #DACDB0;
+      --dim: #A89D85;
+      --brand: #FFB870;
+      --brand-soft: #5C3A12;
+      --accent: #8AC8FF;
+      --accent-soft: #1F4F80;
+      --ok: #7CE39F;
+      --ok-soft: #1F4F2A;
+      --bad: #FF9D9D;
+      --bad-soft: #6B2424;
+      --known: #C8E875;
+      --known-soft: #3A5018;
     }
   }
 
@@ -579,7 +579,7 @@ const state = {
   rate: parseFloat(localStorage.getItem('vm:rate') || '0.9'),
   voice: localStorage.getItem('vm:voice') || '',
   autoSpeak: localStorage.getItem('vm:autoSpeak') !== '0',
-  darkAuto: localStorage.getItem('vm:darkAuto') !== '0',
+  darkAuto: localStorage.getItem('vm:darkAuto') === '1',
   newPerDay: parseInt(localStorage.getItem('vm:newPerDay') || '10', 10),
   srsSession: null,  // active review session
 };
